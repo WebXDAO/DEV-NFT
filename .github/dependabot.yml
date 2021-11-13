@@ -4,7 +4,7 @@ updates:
     package-ecosystem: npm
     rebase-strategy: auto
     schedule:
-      timezone: "12:00 IST"
+      interval: "weekly"
       
 
 version: 2
