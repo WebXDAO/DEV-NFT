@@ -1,6 +1,6 @@
 {
   "name": "dev-nft",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This project aims for Dev Dapp Starter Grants & [Buildit](https://buidlit.polygon.technology/)",
   "main": "index.js",
   "scripts": {
