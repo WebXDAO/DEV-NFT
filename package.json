@@ -1,0 +1,29 @@
+{
+  "name": "dev-nft",
+  "version": "1.0.0",
+  "description": "This project aims for Dev Dapp Starter Grants & [Buildit](https://buidlit.polygon.technology/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web3community/DEV-NFT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/web3community/DEV-NFT/issues"
+  },
+  "homepage": "https://github.com/web3community/DEV-NFT#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.1",
+    "remark-cli": "^10.0.0",
+    "remark-preset-lint-recommended": "^6.1.1"
+  }
+}

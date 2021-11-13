@@ -1,0 +1,24 @@
+name: CodeQL analysis
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/*.js'
+      - '.github/workflows/codeql.yml'
+
+jobs:
+  build:
+    if: github.repository_owner == 'web3community'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: github/codeql-action/init@v1
+        with:
+          languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp} (not YET ruby, sorry!)
+      - uses: github/codeql-action/analyze@v1
+        continue-on-error: true
