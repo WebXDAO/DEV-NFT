@@ -3,5 +3,8 @@ updates:
     open-pull-requests-limit: 5
     package-ecosystem: npm
     rebase-strategy: auto
+    schedule:
+      timezone: "12:00 IST"
+      
 
 version: 2
