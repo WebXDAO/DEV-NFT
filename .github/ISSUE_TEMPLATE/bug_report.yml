@@ -29,16 +29,6 @@ body:
       required: true
 
   - type: textarea
-    id: current-behavior
-    attributes:
-      label: Current Behavior
-      description: What actually happened?
-      placeholder: What should be happen?
-      value: "Instead of [what should happen](#expected-behavior), I find..."
-    validations:
-      required: true
-
-  - type: textarea
     id: reproduce
     attributes:
       label: How can someone reproduce the behavior?
