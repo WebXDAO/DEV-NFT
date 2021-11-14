@@ -62,11 +62,8 @@ Please follow all instructions in [the template](https://github.com/web3communit
 ## How to Contribute 🚀
 
 *   Please create an [issue](https://github.com/web3community/DEV-NFT/issues) before creating a pull request.
-
 *   Fork the repository and create a branch for any issue that you are working on.
-
 *   Create a pull request which will be promptly reviewed and suggestions would be added to improve it.
-
 *   Add Screenshots to help us know what changes you have done.
 
 ## How to make a pull request 🤔
@@ -76,13 +73,13 @@ Please follow all instructions in [the template](https://github.com/web3communit
 **2.** Clone the forked repository.
 
 ```bash
-git clone https://github.com/<your-username>/devprotocol.xyz.git
+git clone https://github.com/<your-username>/DEV-NFT.git
 ```
 
 **3.** Navigate to the project directory.
 
 ```bash
-cd devprotocol.xyz
+cd DEV-NFT
 ```
 
 **4.** Create a new branch
@@ -121,7 +118,7 @@ git push origin your-branch-name
 
 **9.** 🎉 Congratulations! You've made your first pull request! Now, you should just wait until the maintainers review your pull request.
 
-## 🌳 Hacktoberfest Guidelines
+## 🛑 Important
 
 ### ✅ Good Practice
 
