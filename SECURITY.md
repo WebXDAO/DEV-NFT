@@ -4,9 +4,9 @@
 
 Currently none of the versions are production ready
 
-| Version | Supported          |
-| ------- | ------------------ |
-| x.x.x   | :x:                |
+| Version | Supported |
+| ------- | --------- |
+| x.x.x   | :x:       |
 
 ## Reporting a Vulnerability
 
