@@ -1,4 +1,7 @@
+# Automation to close issues on "invalid" label addition
+
 name: Close Issue/PR on adding invalid label
+
 
 on:
   issues:
