@@ -76,7 +76,7 @@ Please follow all instructions in [the template](https://github.com/web3communit
 **2.** Clone the forked repository.
 
 ```bash
-git clone https://github.com/<your-username>/devprotocol.xyz.git
+git clone https://github.com/<your-username>/DEV-NFT.git
 ```
 
 **3.** Navigate to the project directory.
