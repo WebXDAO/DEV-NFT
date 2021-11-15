@@ -6,7 +6,7 @@ The following is a set of guidelines for contributing to this project. These are
 
 ## 📜 Code of Conduct
 
-This project and everyone participating in it is governed by a [Code of Conduct](https://github.com/web3community/DEV-NFT/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to one of our moderators via your preferred platform or in our [Discord server](https://discord.gg/VwJp4KM).
+This project and everyone participating in it is governed by a [Code of Conduct](https://github.com/web3community/DEV-NFT/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to one of our moderators via your preferred platform or in our [Discord server](https://discord.gg/TSRwqx4K2v).
 
 ## 🤔 How can I contribute?
 
@@ -138,5 +138,5 @@ After this, the project maintainers will review the changes and will merge your 
 
 ## 📈 Getting started
 
-*   😕 Not sure where to start? Join our community on [Discord](https://discord.gg/VwJp4KM)
+*   😕 Not sure where to start? Join our community on [Discord](https://discord.gg/TSRwqx4K2v)
 *   ✨ You can also take part in our [Community Discussions](https://github.com/web3community/DEV-NFT/discussions)
