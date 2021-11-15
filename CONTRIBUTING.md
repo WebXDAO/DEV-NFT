@@ -22,7 +22,10 @@ Since the new GitHub Issue forms we only suggest you to include most information
 
 This section guides you through submitting an enhancement suggestion, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion 📝 and find related suggestions. 🔎
 
-Since the new GitHub Issue forms we only suggest you to include most information possible. But you can also **issues** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+Since the new GitHub Issue forms we only suggest you to include most information possible.
+
+You can see **issues** to see if the enhancement has already been suggested.
+If it has, add a comment to the existing issue instead of opening a new one.
 
 > **Note:** If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
 
@@ -69,7 +72,7 @@ g a pull request.
 
 ## How to make a pull request 🤔
 
-**1.** Fork [this](repo) repository. Click on the [![PR](pr-icon)](repo) symbol at the top right corner.
+**1.** Fork [this](repo) repository.
 
 **2.** Clone the forked repository.
 
@@ -142,4 +145,3 @@ git push origin your-branch-name
 [prs]: https://github.com/web3community/DEV-NFT/pulls
 
 [conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0/
-[pr-icon]: https://img.icons8.com/fluency/30/000000/code-fork.png
