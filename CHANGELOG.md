@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/web3community/DEV-NFT/compare/v1.0.2...v1.0.3) (2021-11-15)
+
+
+### Bug Fixes
+
+* Update Discord links ([f097734](https://github.com/web3community/DEV-NFT/commit/f097734f9593630246bc718e76b363f6f42319f9))
+
+
+
 ## [1.0.2](https://github.com/web3community/DEV-NFT/compare/v1.0.1...v1.0.2) (2021-11-13)
 
 
