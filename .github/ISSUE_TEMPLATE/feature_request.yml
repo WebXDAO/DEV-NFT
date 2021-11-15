@@ -14,7 +14,7 @@ body:
       label: Detailed Description
       description: Add a detailed description of the feature request.
       placeholder: A detailed description of the feature request.
-      value: "I found this error in this project where ..."
+      value: "I think the feature [placeholder] should be added because ..."
     validations:
       required: true
 
@@ -22,7 +22,7 @@ body:
     id: contributing
     attributes:
       label: Contributing
-      description: You accept that you've read the [Contributing](https://github.com/web3community/DEV-NFT/blob/main/CONTRIBUTING.md)
+      description: You accept that you've read the [contributing guidelines](https://github.com/web3community/DEV-NFT/blob/main/CONTRIBUTING.md)
       options:
         - label: I have read the project's contribution guidelines.
           required: true

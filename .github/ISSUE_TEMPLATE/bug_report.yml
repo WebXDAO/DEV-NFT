@@ -35,7 +35,7 @@ body:
       description: Steps to reproduce the behavior you were facing.
       placeholder: How can someone reproduce the behavior you were facing?
       value: |
-        1. Goto...
+        1. Go to...
         2. Do...
         3. Now...
         4. Finally...
@@ -46,7 +46,7 @@ body:
     id: contributing
     attributes:
       label: Contributing
-      description: You accept that you've read the [Contributing](https://github.com/web3community/DEV-NFT/blob/main/CONTRIBUTING.md)
+      description: You accept that you've read the [contributing guidelines](https://github.com/web3community/DEV-NFT/blob/main/CONTRIBUTING.md)
       options:
         - label: I have read the project's contribution guidelines.
           required: true
