@@ -22,7 +22,7 @@ Since the new GitHub Issue forms we only suggest you to include most information
 
 This section guides you through submitting an enhancement suggestion, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion 📝 and find related suggestions. 🔎
 
-Since the new GitHub Issue forms we only suggest you to include most information possible.
+Since GitHub Issue forms we only suggest you to include most information possible.
 
 You can see **issues** to see if the enhancement has already been suggested.
 If it has, add a comment to the existing issue instead of opening a new one.
@@ -33,8 +33,8 @@ If it has, add a comment to the existing issue instead of opening a new one.
 
 Unsure where to begin contributing to this project? You can start by looking through these beginner-friendly issues:
 
-- [Beginner issues](good-first-issues) - issues which should only require a few lines of code, and a test or two.
-- [Help wanted issues](help-wanted) - issues which should be a bit more involved than `beginner` issues.
+- [Beginner issues](good-first-issues) - issues that require require less work.
+- [Help wanted issues](help-wanted) - issues that are a bit more involved.
 
 ### 📣 Pull Requests
 
