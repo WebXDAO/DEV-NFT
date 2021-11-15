@@ -1,20 +1,20 @@
-name: Feature Request
-description: File a feature request
-title: "[Feat]: "
-labels: ["💻 aspect: code", "⭐ goal: addition", "🚦 status: awaiting triage"]
+name: Documentation
+description: File a documentation request/report
+title: "[Docs]: "
+labels: ["📄 aspect: text", "✨ goal: improvement", "🚦 status: awaiting triage"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this feature request!
+        Thanks for taking the time to fill out this documentation request!
 
   - type: textarea
     id: detailed-description
     attributes:
       label: Detailed Description
-      description: Add a detailed description of the feature request.
-      placeholder: A detailed description of the feature request.
-      value: "I think the feature [placeholder] should be added because ..."
+      description: Add a detailed description of the documentation request.
+      placeholder: A detailed description of the documentation request.
+      value: "We should add documentation about this part ..."
     validations:
       required: true
 

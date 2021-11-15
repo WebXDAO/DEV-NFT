@@ -1,3 +1,5 @@
+# Automatation to merge dependency updates automatically
+
 name: Merge Dependency Updates Automatically
 
 on:

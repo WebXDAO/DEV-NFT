@@ -1,3 +1,5 @@
+# Run Codacy Analysis on Push
+
 name: Codacy Analysis CLI
 
 on: ["push"]

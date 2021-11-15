@@ -1,3 +1,5 @@
+# Import Repo Standard Labels whenever needed.
+
 name: Label importer
 
 on: workflow_dispatch

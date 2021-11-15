@@ -1,3 +1,5 @@
+# Release to github using semantic versioning and conventional commits
+
 name: GitHub Release
 on:
   push:
