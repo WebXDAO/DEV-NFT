@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/web3community/DEV-NFT/compare/v1.0.3...v1.0.4) (2021-11-20)
+
+
+### Bug Fixes
+
+* correct use of Markdown links ([#8](https://github.com/web3community/DEV-NFT/issues/8)) ([351318b](https://github.com/web3community/DEV-NFT/commit/351318bbfad08a10d50fc504759fccca9366b1df))
+
+
+
 ## [1.0.3](https://github.com/web3community/DEV-NFT/compare/v1.0.2...v1.0.3) (2021-11-15)
 
 
