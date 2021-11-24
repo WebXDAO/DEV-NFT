@@ -1,28 +1,30 @@
 {
-  "name": "dev-nft",
-  "version": "1.0.4",
-  "description": "This project aims for Dev Dapp Starter Grants & [Buildit](https://buidlit.polygon.technology/)",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/web3community/DEV-NFT.git"
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.3.3",
+    "axios": "^0.24.0",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.5.1",
+    "hardhat": "^2.6.8",
+    "ipfs-http-client": "^54.0.1",
+    "next": "latest",
+    "next-auth": "^3.29.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "web3modal": "^1.9.4"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/web3community/DEV-NFT/issues"
-  },
-  "homepage": "https://github.com/web3community/DEV-NFT#readme",
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.1",
-    "markdownlint-cli2": "^0.3.2"
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.5",
+    "tailwindcss": "^2.2.4"
   }
 }

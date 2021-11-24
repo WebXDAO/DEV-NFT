@@ -1,0 +1,18 @@
+import 'tailwindcss/tailwind.css'
+import '../styles/globals.css'
+import { Provider } from 'next-auth/client'
+import { SessionProvider } from 'next-auth/client'
+
+
+function MyApp({ Component, pageProps }) {
+  return (
+    
+    // MKU: Do we need Provider or SessionProvider?
+    <Provider session={pageProps.session}>
+      <Component { ...pageProps } />
+    </Provider>
+    
+  )
+}
+
+export default MyApp
