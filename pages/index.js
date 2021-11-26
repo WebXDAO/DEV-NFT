@@ -8,10 +8,11 @@ import {
 } from 'next-auth/client';
 import Link from 'next/link';
 
-const  home = ({ session }) => {
+const home = ({ session }) => {
 
   const [session2, loading] = useSession();
-  console.log("use session", session2)
+  console.log("useSession() :", session2)
+
   return (
     <div className="bg-gradient-to-r from-pink-400 to-blue-500">
       <Head>
@@ -43,7 +44,7 @@ const  home = ({ session }) => {
           {/* Show the repository list */}
           <div className="flex flex-col justify-center items-center space-y-5 mt-10">
 
-            <Link href="/marketplace"><a>
+            <Link href="/repos-list"><a>
               <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
                 <span>Go to Repository list</span>
               </button>
