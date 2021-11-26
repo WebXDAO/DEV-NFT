@@ -9,6 +9,7 @@ module.exports = {
     ecmaVersion: 6
   },
   rules: {
-    "semi": 0
+    'semi': 0,
+    'no-unused-var': 'off'
   }
 }
