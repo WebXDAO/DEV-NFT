@@ -12,6 +12,9 @@ import { checkProperties } from "@ethersproject/properties";
 
 function ReposList({ reposList }) {
 
+    // uncomment to see the reposList of the logged user
+    // console.log(reposList) 
+
     const router = useRouter();
     if (router.isFallback)  return <div>Loading...</div>;
 
