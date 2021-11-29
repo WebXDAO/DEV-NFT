@@ -8,10 +8,7 @@ import {
 } from 'next-auth/client';
 import Link from 'next/link';
 
-const home = ({ session }) => {
-
-  const [session2, loading] = useSession();
-  console.log("useSession() :", session2)
+const  home = ({ session }) => {
 
   return (
     <div className="bg-gradient-to-r from-pink-400 to-blue-500">
@@ -36,10 +33,11 @@ const home = ({ session }) => {
 
           {/* Login status */}
           <div className="flex justify-center items-center space-x-2">
-            <h1 className="text-4xl text-white">Signed in as <b>{session.user.name}</b></h1>
-            <img className="w-12 h-12 rounded-full" src={session.user.image} alt={session.user.name} />
+            <h1 className="text-4xl text-white">Signed in as <b>{session.name}</b> - Login: {session.profile.login}</h1>
+            <img className="w-12 h-12 rounded-full" src={session.picture} alt={session.name} />
             <span className="text-4xl">🎉</span>
           </div>
+        
 
           {/* Show the repository list */}
           <div className="flex flex-col justify-center items-center space-y-5 mt-10">
@@ -62,11 +60,11 @@ const home = ({ session }) => {
   )
 }
 
-export default home;
-
 // Get the github session at the runtime of the app
 export const getServerSideProps = async (context) => {
   const session = await getSession(context);
+
+  console.log("session", session)
 
   return {
     props: {
@@ -74,4 +72,6 @@ export const getServerSideProps = async (context) => {
     },
   };
 };
+
+export default home;
 

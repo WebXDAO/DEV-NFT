@@ -11,7 +11,8 @@ const options = {
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       profile(profile) {
-        // La on a toute les data...
+        // All data come from github, need to find a way to surcharge the session object
+        // from the callbacks bellow :
         // console.log("profile", profile)
         return {
           id: profile.id,
@@ -24,28 +25,27 @@ const options = {
           followers: profile.followers
         }
       }
-    })
-  ],
+    })],
+
+  // Optional SQL or MongoDB database to persist users
+  // database: process.env.DATABASE_URL,
+
   callbacks: {
-    async signIn(user, account, profile) {
-      console.log("Sign in call back user:");
-      console.log(user);
-
-      // return user;
-      // user && (token.user = user)
-      return user
+    jwt: async ( token, user ) => {
+      //  "user" parameter is the object received from "authorize"
+      //  "token" is being send below to "session" callback...
+      //  ...so we set "profile" param of "token" to object from "authorize"...
+      //  ...and return it...
+      user && (token.profile = user)
+      return token
     },
-    session: async ({ session, token }) => {
-      console.log("sessio,", session)
-      console.log("sessio,", token)
-
-        // session.user = token.user
-        // return session
+    session: async ( session, token ) => {
+      //  "session" is current session object
+      //  below we set "user" param of "session" to value received from "jwt" callback
+      session.user = token.user
+      return token
     }
   }
-  
-  // Optional SQL or MongoDB database to persist users
-  // database: process.env.DATABASE_URL
 }
 
 export default (req, res) => NextAuth(req, res, options);
