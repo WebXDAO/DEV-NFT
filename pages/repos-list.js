@@ -19,10 +19,9 @@ function ReposList({ reposList }) {
     if (router.isFallback)  return <div>Loading...</div>;
 
     const [session] = useSession();
-    console.log("session reposList component", session)
 
+    // 
     const getRepositoryList = (github_login) => {
-        // github api
         return request("/api/repos_list", {
             body: JSON.stringify({ github_login }),
             headers: {
@@ -43,17 +42,13 @@ function ReposList({ reposList }) {
                 {/* Cards container */}
                 <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-3">
                         {reposList.map((repos) => (
-                            <div class="bg-white rounded-xl p-5 shadow-2xl m-2 flex flex-col md:flex-row">
-                                {/* <p> Esther creates truly beautiful components, 
-                                    you should definitely work with her. The end
-                                    results are always worth it. A great find!
-                                </p> */}
+                            <div key={repos.id} className="bg-white rounded-xl p-5 shadow-2xl m-2 flex flex-col md:flex-row">
                                 <a className="text-blue-400" href={repos.clone_url} >
-                                <div class='mt-5 flex items-center'>
-                                    <img src={repos.owner.avatar_url} class='rounded-full h-12'/>
-                                    <div class="ml-3">
-                                        <h2 class="font-semibold"> {repos.name} </h2>
-                                        <p class="text-gray-500"> {repos.description} </p>
+                                <div className='mt-5 flex items-center'>
+                                    <img src={repos.owner.avatar_url} className='rounded-full h-12'/>
+                                    <div className="ml-3">
+                                        <h2 className="font-semibold"> {repos.name} </h2>
+                                        <p className="text-gray-500"> {repos.description} </p>
                                         <p>⭐ {repos.stargazers_count }</p>
                                     </div>
                                 </div>
@@ -63,7 +58,7 @@ function ReposList({ reposList }) {
                 </section>
                 
                 <Link href="/">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-5 rounded">
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-5 rounded">
                         Back home
                     </button>
                 </Link>
@@ -74,21 +69,9 @@ function ReposList({ reposList }) {
 }
 
 
-{/* <div className={styles.grid}>
-  {pinnedItems.map(item => {
-    return (
-      <a key={item.id} href={item.url} className={styles.card}>
-        <h2>{ item.name }</h2>
-        <p>⭐ {item.stargazers.totalCount }</p>
-      </a>
-    )
-  })}
-</div> */}
-
 export async function getServerSideProps(context) {
-    // const login = context.params.github_login
     
-    // get github login
+    // Get github login
     const session = await getSession(context)
     const login = session.profile.login;
 
