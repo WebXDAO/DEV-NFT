@@ -72,18 +72,18 @@ const home = ({ session }) => {
   // MetaMask injects the window.ethereum object into our browser whenever the extension
   // is installed and active. We do this when our page is done loading in a useEffect hook
   // and put it into our state for later use.
-  useEffect(() => {
-    window.ethereum ?
-      ethereum.request({ method: "eth_requestAccounts" }).then((accounts) => {
-        setAddress(accounts[0])
-        console.log("Account", accounts)
-        console.log("Account[0]", accounts[0])
-        let w3 = new Web3(ethereum)
-        setWeb3(w3)
+  // useEffect(() => {
+  //   window.ethereum ?
+  //     ethereum.request({ method: "eth_requestAccounts" }).then((accounts) => {
+  //       setAddress(accounts[0])
+  //       console.log("Account", accounts)
+  //       console.log("Account[0]", accounts[0])
+  //       let w3 = new Web3(ethereum)
+  //       setWeb3(w3)
 
-      }).catch((err) => console.log(err))
-    : console.log("Please install MetaMask")
-  }, [])
+  //     }).catch((err) => console.log(err))
+  //   : console.log("Please install MetaMask")
+  // }, [])
 
   function connectToMetamask() {
     window.ethereum ?
@@ -108,7 +108,7 @@ const home = ({ session }) => {
 
       {/* Menu */}
       <Popover className="relative bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <a href="#">
@@ -132,11 +132,30 @@ const home = ({ session }) => {
             </div>
             <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
               <a
+                onClick={connectToMetamask}
                 href="#"
                 className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700"
               >
                 Connect Wallet
               </a>
+
+              {!session && <>
+                <a 
+                    onClick={signIn}
+                    href="#"
+                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700"
+                  >
+                    Github login
+                </a>
+              </>}
+
+              {session && <>
+                <span className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700">
+                  Signed in as &nbsp;<b>{session.name}</b>
+                  <img className="w-6 h-6 rounded-full mx-auto ml-2" src={session.picture} alt={session.name} />
+
+                </span>
+              </>}
             </div>
           </div>
         </div>
@@ -210,6 +229,7 @@ const home = ({ session }) => {
             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-md shadow">
                 <a
+                  onClick={connectToMetamask}
                   href="#"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 md:py-2 md:text-lg md:px-10"
                 >
