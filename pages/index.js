@@ -34,8 +34,6 @@ import {
 // from https://unpkg.com/browse/@heroicons/react@1.0.5/outline/
 let Web3 = require('web3');
 
-
-
 const home = ({ session }) => {
 
   // Mobile menu data
@@ -438,7 +436,7 @@ const home = ({ session }) => {
             ))}
           </div>
           <div className="mt-8 md:mt-0 md:order-1">
-            <p className="text-center text-base text-gray-400">&copy; 2021 Web3community. All rights reserved.</p>
+            <p className="text-center text-base text-gray-400">&copy; 2021 Web3Community. All rights reserved.</p>
           </div>
         </div>
       </footer>
