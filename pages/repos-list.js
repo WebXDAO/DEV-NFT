@@ -10,17 +10,14 @@ import { checkProperties } from "@ethersproject/properties";
 
 
 
-function ReposList({ reposList }) {
+function ReposList({ reposList, session }) {
 
     // uncomment to see the reposList of the logged user
-    console.log(reposList) 
+    // console.log(reposList) 
 
     const router = useRouter();
     if (router.isFallback)  return <div>Loading...</div>;
 
-    const [session] = useSession();
-
-    // 
     const getRepositoryList = (github_login) => {
         return request("/api/repos_list", {
             body: JSON.stringify({ github_login }),
@@ -63,7 +60,6 @@ function ReposList({ reposList }) {
                     </button>
                 </Link>
             </div>
-
         </>
     )
 }
@@ -73,7 +69,9 @@ export async function getServerSideProps(context) {
     
     // Get github login
     const session = await getSession(context)
-    const login = session.profile.login;
+    if (session.profile) {
+        var login = session.profile.login;
+    }
 
     const res = await fetch('https://api.github.com/users/'+ login + '/repos');
     const reposList = await res.json();
@@ -90,7 +88,8 @@ export async function getServerSideProps(context) {
     // will receive `reposList` as a prop at build time
     return {
         props: {
-            reposList
+            reposList,
+            session
         },
     }
 }
