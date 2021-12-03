@@ -127,6 +127,7 @@ const home = ({ session }) => {
       // Check if User is already connected by retrieving the accounts
       web3.eth.getAccounts()
         .then(async (addr) => {
+          
           // Set User account into state
           setAddress(addr);
 
