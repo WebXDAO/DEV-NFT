@@ -169,7 +169,7 @@ function Login({ session }) {
                                                     className="h-10 w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                                                 >
                                                     <span className="sr-only">Sign in with Metamask</span>
-                                                    <img className="h-6 w-6" src="metamask-fox.svg" />
+                                                    <img className="h-6 w-6" src="./metamask-fox.svg" />
                                                 </a>
                                             </div>
                                         </>}
