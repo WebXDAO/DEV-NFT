@@ -44,7 +44,11 @@ const options = {
       //  below we set "user" param of "session" to value received from "jwt" callback
       session.user = token.user
       return token
-    }
+    },
+
+    // redirect: async ( url, baseUrl ) => {
+    //   return '/creator-dashboard'
+    // },
   }
 }
 
