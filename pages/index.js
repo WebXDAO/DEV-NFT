@@ -35,12 +35,12 @@ import {
 // Faq sesction data
 const faqs = [
   {
-    question: 'Question 1?',
+    question: 'Question 1',
     answer:
       'You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.',
   },
   {
-    question: 'Question 2?',
+    question: 'Question 2',
     answer:
       'You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.',
   },
@@ -67,7 +67,7 @@ const mobileMenu = [
 const navigation = [
   {
     name: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/web3community/',
     icon: (props) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
@@ -80,7 +80,7 @@ const navigation = [
   },
   {
     name: 'GitHub',
-    href: '#',
+    href: 'https://github.com/web3community/',
     icon: (props) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
@@ -174,7 +174,7 @@ const home = ({ session }) => {
                     href="#"
                     className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700"
                   >
-                    Github login
+                    Login with GitHub
                 </a>
               </>}
 
@@ -371,7 +371,7 @@ const home = ({ session }) => {
           ))}
         </div>
         <div className="mt-8 md:mt-0 md:order-1">
-          <p className="text-center text-base text-gray-400">&copy; 2021 Web3community, Inc. All rights reserved.</p>
+          <p className="text-center text-base text-gray-400">&copy; 2021 Web3Community. All rights reserved.</p>
         </div>
       </div>
     </footer>
