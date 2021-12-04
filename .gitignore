@@ -130,3 +130,6 @@ dist
 
 # Nextjs - lockfile
 package-lock.json
+
+#Secrets 
+.secret
