@@ -130,3 +130,10 @@ dist
 
 # Nextjs - lockfile
 package-lock.json
+
+#secret
+.secret
+
+#Hardhat files
+cache
+artifacts
