@@ -14,15 +14,6 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon, LogoutIcon } from '@heroicons/react/outline'
 import Link from 'next/link';
 
-// import {
-//   nftmarketaddress, nftaddress
-// } from '../config'
-
-// import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
-// import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
-
-
-
 function CreatorDashboard({ session }) {
 
   const navigation = [
@@ -70,7 +61,6 @@ function CreatorDashboard({ session }) {
     };
 
     checkConnection();
-    // loadNFTs()
   }, [])
 
   function connectToMetamask() {
@@ -92,41 +82,7 @@ function CreatorDashboard({ session }) {
   }
 
   // Load the NFTs from mainnet :
-  async function loadNFTs() {
-    const web3Modal = new Web3Modal({
-      network: "mainnet",
-      cacheProvider: true,
-    })
-    const connection = await web3Modal.connect()
-    const provider = new ethers.providers.Web3Provider(connection)
-    const signer = provider.getSigner()
-
-    const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-    const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
-    const data = await marketContract.fetchItemsCreated()
-
-    const items = await Promise.all(data.map(async i => {
-      const tokenUri = await tokenContract.tokenURI(i.tokenId)
-      const meta = await axios.get(tokenUri)
-      let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
-      let item = {
-        price,
-        tokenId: i.tokenId.toNumber(),
-        seller: i.seller,
-        owner: i.owner,
-        sold: i.sold,
-        image: meta.data.image,
-      }
-      return item
-    }))
-
-    /* create a filtered array of items that have been sold */
-    const soldItems = items.filter(i => i.sold)
-    setSold(soldItems)
-    setNfts(items)
-    setLoadingState('loaded')
-  }
-
+  
   console.log("Current Github session: ", session);
 
   return (
@@ -298,7 +254,31 @@ function CreatorDashboard({ session }) {
 
           {/* NFT LIST GOES HERE */}
           <div className="px-4 py-4 sm:px-0">
+              {/*loading marketplace menu here*/}
+              <div className="flex mt-4">
+                <Link href="/home">
+                  <a className="mr-4 text-pink-500">
+                    Home
+                  </a>
+                </Link>
+                <Link href="/create-nft">
+                  <a className="mr-6 text-pink-500">
+                    Generate and Sell
+                  </a>
+                </Link>
+                <Link href="/my-nft">
+                  <a className="mr-6 text-pink-500">
+                    My NFTs
+                  </a>
+                </Link>
+                <Link href="/my-creations">
+                  <a className="mr-6 text-pink-500">
+                    My Creations
+                  </a>
+                </Link>
+              </div>
             <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 text-center" >NFT HERE</div>
+            
           </div>
           {/* /End replace */}
 
