@@ -204,7 +204,7 @@ export async function getServerSideProps(context) {
     if (session) {
         return {
             redirect: {
-                destination: '/creator-dashboard',
+                destination: '/dashboard',
                 permanent: false,
             },
         }

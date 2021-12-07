@@ -22,7 +22,7 @@ function Hero({ heroButton }) {
         // console.log("Web3", web3)
         // console.log(address)
 
-        setHeroButton("Dashboard")
+        setHeroButton("Marketplace")
         router.push('/dashboard');
 
 
@@ -45,7 +45,7 @@ function Hero({ heroButton }) {
                     </p>
                     <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                         <div className="rounded-md shadow">
-                            <Link href={heroButton == "Dashboard" ? "/dashboard" : "/"}>
+                            <Link href={heroButton == "Marketplace" ? "/dashboard" : "/"}>
                                 <a
                                     onClick={connectToMetamask}
                                     href="#"

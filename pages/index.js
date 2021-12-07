@@ -75,7 +75,7 @@ const home = ({ session }) => {
 
           if (addr.length > 0) {
             console.log("Current Metamask wallet: ", addr)
-            setHeroButton("Dashboard")
+            setHeroButton("Marketplace")
           }
         });
     };
@@ -96,7 +96,7 @@ const home = ({ session }) => {
       {/* We should add this header inside a component */}
       <Popover className="relative bg-white">
         <div className="max-w-8xl mx-auto px-4 sm:px-6">
-          <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
+          <div className="flex justify-between items-center py-2 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <Link href="/" alt="DEV-NFT Home">
                 <a href="#">
@@ -140,9 +140,9 @@ const home = ({ session }) => {
                   <b>{session.name}</b>
                   <img className="w-6 h-6 rounded-full mx-auto ml-2" src={session.picture} alt={session.name} />
                 </span>
-                <Link href="/creator-dashboard" alt="Go to dashboard">
+                <Link href="/dashboard" alt="Go to dashboard">
                   <span className="ml-2 whitespace-nowrap inline-flex items-center cursor-pointer justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700">
-                    Dashboard
+                    Marketplace
                   </span>
                 </Link>
                 <span

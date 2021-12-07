@@ -18,8 +18,7 @@ function Navbar({  router, headerName }) {
         { name: 'Home', href: '/dashboard' },
         { name: 'Generate and Sell', href: '/dashboard/create-nft' },
         { name: 'My NFTs', href: '/dashboard/my-nfts' },
-        { name: 'My Creations', href: '/dashboard/my-creations' },
-        { name: 'My repository', href: '/repos-list' }
+        { name: 'My Creations', href: '/dashboard/my-creations' }
     ]
     const userNavigation = [
         { name: 'Sign out', href: '#' },
