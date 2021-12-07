@@ -5,12 +5,13 @@ import Web3Modal from "web3modal"
 
 import {
   nftmarketaddress, nftaddress
-} from '../config'
+} from '../../config'
 
-import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
-import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
+import Market from '../../artifacts/contracts/Market.sol/NFTMarket.json'
+import NFT from '../../artifacts/contracts/NFT.sol/NFT.json'
+import Layout from '../../layout/Layout'
 
-export default function CreatorDashboard() {
+export default function MyCreation() {
   const [nfts, setNfts] = useState([])
   const [sold, setSold] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
@@ -52,6 +53,7 @@ export default function CreatorDashboard() {
   }
   if (loadingState === 'loaded' && !nfts.length) return (<h1 className="py-10 px-20 text-3xl">No assets created</h1>)
   return (
+    <Layout headerName="My creations">
     <div>
       <div className="p-4">
         <h2 className="text-2xl py-2">Items Created</h2>
@@ -91,5 +93,6 @@ export default function CreatorDashboard() {
         }
         </div>
     </div>
+    </Layout>
   )
 }

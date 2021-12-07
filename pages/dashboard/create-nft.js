@@ -8,10 +8,11 @@ const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
 import {
   nftaddress, nftmarketaddress
-} from '../config'
+} from '../../config'
 
-import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
-import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
+import NFT from '../../artifacts/contracts/NFT.sol/NFT.json'
+import Market from '../../artifacts/contracts/Market.sol/NFTMarket.json'
+import Layout from '../../layout/Layout'
 
 export default function CreateItem() {
   const [fileUrl, setFileUrl] = useState(null)
@@ -33,6 +34,9 @@ export default function CreateItem() {
       console.log('Error uploading file: ', error)
     }  
   }
+
+  // Transit or fetch github selected repos
+
   async function createMarket() {
     const { name, description, price } = formInput
     if (!name || !description || !price || !fileUrl) return
@@ -51,6 +55,7 @@ export default function CreateItem() {
   }
 
   async function createSale(url) {
+    
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)    
@@ -73,11 +78,16 @@ export default function CreateItem() {
 
     transaction = await contract.createMarketItem(nftaddress, tokenId, price, { value: listingPrice })
     await transaction.wait()
-    router.push('/')
+
+    // Maybe we can redirect the user to a 'creation-ok' pages
+    // or trigger an tailwind alert!
+    // If transaction is successfull, we redirect the user to
+    // the dashboard.
+    router.push('/dashboard')
   }
 
   return (
-    // automation work
+    <Layout headerName="Create a NFT">
     <div className="flex justify-center">
       <div className="w-1/2 flex flex-col pb-12">
         <input 
@@ -111,5 +121,6 @@ export default function CreateItem() {
         </button>
       </div>
     </div>
+    </Layout>
   )
 }

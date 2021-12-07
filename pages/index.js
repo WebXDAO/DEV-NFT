@@ -38,7 +38,7 @@ const home = ({ session }) => {
 
   // Mobile menu data
   const mobileMenu = [
-    { name: 'Dashboard', icon: CogIcon, href:'/creator-dashboard' }
+    { name: 'Dashboard', icon: CogIcon, href:'/dashboard' }
   ]
 
   // Faq section data
