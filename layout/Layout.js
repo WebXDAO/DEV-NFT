@@ -1,13 +1,13 @@
 import Navbar from '../components/nav/dashboard-navbar'
 
 
-function Layout({ children, headerName, metamaskAddress }) {
+function Layout({ children, headerName, metamaskAddress, session }) {
 
-    
 return (
     <>
         <Navbar
             headerName={headerName}
+            session={session}
         />
         
         <main>{ children }</main>

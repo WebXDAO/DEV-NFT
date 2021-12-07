@@ -2,6 +2,12 @@ import { ethers } from 'ethers'
 import axios from 'axios'
 import Web3Modal from "web3modal"
 import { useEffect, useState } from 'react'
+import {
+  getSession,
+  signIn,
+  signOut,
+  useSession
+} from 'next-auth/client';
 
 import {
   nftaddress, nftmarketaddress
@@ -18,7 +24,7 @@ if (process.env.NEXT_PUBLIC_WORKSPACE_URL) {
   rpcEndpoint = process.env.NEXT_PUBLIC_WORKSPACE_URL
 }
 
-export default function Home() {
+export default function Home({ session }) {
   const [nfts, setNfts] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
   useEffect(() => {
@@ -48,20 +54,7 @@ export default function Home() {
     setNfts(items)
     setLoadingState('loaded') 
   }
-  async function buyNft(nft) {
-    const web3Modal = new Web3Modal()
-    const connection = await web3Modal.connect()
-    const provider = new ethers.providers.Web3Provider(connection)
-    const signer = provider.getSigner()
-    const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
 
-    const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
-    const transaction = await contract.createMarketSale(nftaddress, nft.itemId, {
-      value: price
-    })
-    await transaction.wait()
-    loadNFTs()
-  }
   if (loadingState === 'loaded' && !nfts.length) return (<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>)
   return (
     <Layout headerName="Dev-NFT Marketplace">
@@ -69,3 +62,32 @@ export default function Home() {
     </Layout>
   )
 }
+
+// Get the github session at the runtime of the app
+export const getServerSideProps = async (context) => {
+
+  // Get github login
+  const session = await getSession(context)
+  if (session) {
+    var login = session.profile.login;
+
+    if (login) {
+      const res = await fetch('https://api.github.com/users/' + login + '/repos');
+      const reposList = await res.json();
+
+      return {
+        props: {
+          session,
+          reposList
+        },
+      };
+    }
+  }
+
+  
+  return {
+    props: {
+      session
+    },
+  };
+};

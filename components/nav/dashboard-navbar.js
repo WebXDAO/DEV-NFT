@@ -12,7 +12,7 @@ let Web3 = require('web3');
 import { withRouter } from 'next/router'
 
 
-function Navbar({ session, router, headerName }) {
+function Navbar({  router, headerName }) {
 
     const navigation = [
         { name: 'Home', href: '/dashboard' },
@@ -24,6 +24,9 @@ function Navbar({ session, router, headerName }) {
     const userNavigation = [
         { name: 'Sign out', href: '#' },
     ]
+
+    const initSession = useSession();
+    const session = initSession[0];
 
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
