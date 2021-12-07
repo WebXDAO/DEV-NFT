@@ -136,5 +136,4 @@ package-lock.json
 .secret
 
 #Hardhat files
-cache
-artifacts
+
