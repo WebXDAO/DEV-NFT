@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function svgCards({ props, githubUsername, selectedRepos }) {
+function SvgPreview({ props, githubUsername, selectedRepos, description }) {
 
     // Uncomment to debug :
     console.log("svgCards username =>", githubUsername)
@@ -89,7 +89,7 @@ function svgCards({ props, githubUsername, selectedRepos }) {
                         transform="translate(780.76 552.57)"
                     >
                         <tspan x={-149.88} y={17.91}>
-                            {"{RepoName}"}
+                            {selectedRepos}
                         </tspan>
                     </text>
                 </g>
@@ -142,7 +142,7 @@ function svgCards({ props, githubUsername, selectedRepos }) {
                     >
                         <tspan x={-501.77} y={-14.93}>
                             {
-                                "{This supposed to be the repo description. I am not able to figure out what if size exceeds}"
+                                description
                             }
                         </tspan>
                     </text>
@@ -189,4 +189,4 @@ function svgCards({ props, githubUsername, selectedRepos }) {
 
 };
 
-export default svgCards;
+export default SvgPreview;

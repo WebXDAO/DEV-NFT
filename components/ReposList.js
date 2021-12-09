@@ -6,6 +6,7 @@ import Web3Modal from 'web3modal'
 import ReposModal from "./ReposModal";
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import SvgPreview from './SvgPreview'
 
 function ReposList({ reposList }) {
 
@@ -31,9 +32,8 @@ function ReposList({ reposList }) {
 
         const reposName = repos.full_name;
         const ownerName = repos.owner.login;
-        console.log(reposName, ownerName)
         
-        setGithubContent({ name: ownerName, repos_name: reposName, description: '' })
+        setGithubContent({ name: ownerName, repos_name: reposName, description: repos.description })
         console.log(githubContent) // bug
 
         setOpen(true)
@@ -155,9 +155,16 @@ function ReposList({ reposList }) {
                     <div>
                         <div className="mt-3 text-center sm:mt-5">
                         <div>
-                            <p>SEE SVG PREVIEW HERE (WIP)</p>
+                            {/* The svg preview is so large.... it need some fix */}
+                            <SvgPreview
+                                githubUsername={githubContent.name}
+                                selectedRepos={githubContent.repos_name}
+                                description={githubContent.description}
+                            />
                             <p>github name: {githubContent.name}</p>
                             <p>repos name: {githubContent.repos_name}</p>
+                            <p>repos description: {githubContent.description}</p>
+
                         </div>
                         </div>
                     </div>
