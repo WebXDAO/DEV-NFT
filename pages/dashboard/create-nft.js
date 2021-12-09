@@ -24,17 +24,13 @@ import NFT from '../../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../../artifacts/contracts/Market.sol/NFTMarket.json'
 import Layout from '../../layout/Layout'
 
-export default function CreateItem({ session, reposList }) {
+export default function CreateItem({ session, reposList, login }) {
   const [fileUrl, setFileUrl] = useState(null)
   const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
   const router = useRouter()
   const [open, setOpen] = useState(false);
 
-  const people = [
-    { name: 'Jane Cooper', title: 'Regional Paradigm Technician', role: 'Admin', email: 'jane.cooper@example.com' },
-    { name: 'Cody Fisher', title: 'Product Directives Officer', role: 'Owner', email: 'cody.fisher@example.com' },
-    // More people...
-  ]
+  
 
   async function onChange(e) {
     const file = e.target.files[0]
@@ -112,7 +108,7 @@ export default function CreateItem({ session, reposList }) {
         {/* If user is connected to github, it display user's repos list */}
         {session &&
           <>
-            <ReposList reposList={reposList} />
+            <ReposList reposList={reposList} login={login} />
           </>
         }
 
@@ -155,7 +151,8 @@ export const getServerSideProps = async (context) => {
       return {
         props: {
           session,
-          reposList
+          reposList,
+          login
         },
       };
     }

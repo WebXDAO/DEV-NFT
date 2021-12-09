@@ -46,7 +46,7 @@ function Navbar({  router, headerName }) {
                 // console.log("Web3", web3)
                 // console.log(address)
 
-                setHeroButton("Dashboard")
+                setHeroButton("Marketplace")
 
             }).catch((err) => console.log(err))
             : console.log("Please install MetaMask")
@@ -63,8 +63,9 @@ function Navbar({  router, headerName }) {
                 web3 = new Web3(window.web3.currentProvider);
             };
 
-            // Check if User is already connected by retrieving the accounts
-            web3.eth.getAccounts()
+            if (web3) {
+                // Check if User is already connected by retrieving the accounts
+                web3.eth.getAccounts()
                 .then(async (addr) => {
 
                     // Set User account into state
@@ -75,6 +76,8 @@ function Navbar({  router, headerName }) {
                         console.log("Current metamask wallet: ", addr)
                     }
                 });
+            }
+            
         };
 
         checkConnection();
