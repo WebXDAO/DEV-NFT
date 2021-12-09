@@ -5,8 +5,8 @@ name: Merge Dependency Updates Automatically
 on:
   pull_request_target:
     paths:
-      - 'package*.json'
-      - 'yarn.lock'
+      - "package*.json"
+      - "yarn.lock"
   pull_request_review:
     types:
       - edited

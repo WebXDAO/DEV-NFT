@@ -1,89 +1,58 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import { useRouter } from "next/router";
-import Link from 'next/link';
-import React, { useEffect, useState } from "react";
-import { Fragment } from 'react';
-import { Popover, Transition } from '@headlessui/react';
-import {
-  getSession,
-  signIn,
-  signOut,
-  useSession
-} from 'next-auth/client';
-import {
-  BookmarkAltIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  CursorClickIcon,
-  CloudUploadIcon,
-  MenuIcon,
-  PhoneIcon,
-  PlayIcon,
-  LockClosedIcon,
-  CogIcon,
-  ServerIcon,
-  RefreshIcon,
-  ShieldCheckIcon,
-  SupportIcon,
-  ViewGridIcon,
-  XIcon,
-  LogoutIcon
-} from '@heroicons/react/outline';
-// If you need another icon, just add his name in the list below
-// from https://unpkg.com/browse/@heroicons/react@1.0.5/outline/
-let Web3 = require('web3');
+import React, { useEffect, useState, Fragment } from 'react'
+import Head from 'next/head'
+import Link from 'next/link'
+
+import { Popover, Transition } from '@headlessui/react'
+
+import { getSession, signOut } from 'next-auth/client'
+
+import { MenuIcon, CogIcon, XIcon, LogoutIcon } from '@heroicons/react/outline'
+
 import Footer from '../components/landing/footer'
-import Features from '../components/landing/features';
-import Faq from '../components/landing/faq';
-import SToken from '../components/landing/stoken';
-import Hero from '../components/landing/hero';
+import Features from '../components/landing/features'
+import Faq from '../components/landing/faq'
+import SToken from '../components/landing/stoken'
+import Hero from '../components/landing/hero'
+
+const Web3 = require('web3')
 
 const home = ({ session }) => {
+  const mobileMenu = [{ name: 'Dashboard', icon: CogIcon, href: '/dashboard' }]
 
-  // Mobile menu data
-  const mobileMenu = [
-    { name: 'Dashboard', icon: CogIcon, href:'/dashboard' }
-  ]
-
-  // ---- METAMASK ----
+  // eslint-disable-next-line no-unused-vars
   const [web3, setWeb3] = useState([])
   const [address, setAddress] = useState([])
-  const [heroButton, setHeroButton] = useState('Connect Wallet');
+  const [heroButton, setHeroButton] = useState('Connect Wallet')
 
   // MetaMask injects the window.ethereum object into our browser whenever the extension
   // is installed and active. We do this when our page is done loading in a useEffect hook
   // and put it into our state for later use.
-  useEffect(() => {
 
-    const checkConnection = async () => {
+  useEffect(async () => {
+    // Validate & Use Metamask
 
-      // Check if browser is running Metamask
-      let web3;
-      if (window.ethereum) {
-        web3 = new Web3(window.ethereum);
-      } else if (window.web3) {
-        web3 = new Web3(window.web3.currentProvider);
-      };
+    // Check if browser is running Metamask
+    let web3
 
-      // Check if User is already connected by retrieving the accounts
-      web3.eth.getAccounts()
-        .then(async (addr) => {
-          
-          // Set User account into state
-          setAddress(addr);
+    if (window.ethereum) {
+      web3 = new Web3(window.ethereum)
+    } else if (window.web3) {
+      setWeb3(new Web3(window.web3.currentProvider))
+    }
 
-          if (addr.length > 0) {
-            console.log("Current Metamask wallet: ", addr)
-            setHeroButton("Marketplace")
-          }
-        });
-    };
-    checkConnection();
+    // Validate User Connection using Address
 
+    web3.eth.getAccounts().then(async (addr) => {
+      setAddress(addr)
+
+      if (addr.length > 0) {
+        console.log('Current Metamask wallet: ', addr)
+        setHeroButton('Marketplace')
+      }
+    })
   }, [])
 
-  console.log("Current Github session: ", session);
+  console.log('Current Github session: ', session)
 
   return (
     <div className="relative bg-gray-50">
@@ -101,7 +70,9 @@ const home = ({ session }) => {
               <Link href="/" alt="DEV-NFT Home">
                 <a href="#">
                   <span className="sr-only">Devnft</span>
-                  <span className="text-2xl font-bold text-purple-600">Devnft</span>
+                  <span className="text-2xl font-bold text-purple-600">
+                    Devnft
+                  </span>
 
                   {/* If we need a logo, put it here !
                   <img
@@ -109,7 +80,6 @@ const home = ({ session }) => {
                     src="/section-media.png"
                     alt=""
                   /> */}
-
                 </a>
               </Link>
             </div>
@@ -128,48 +98,58 @@ const home = ({ session }) => {
                 Connect Wallet
               </a> */}
 
-              {/* ------ Display if connected ------ */}
-              {address.length > 0 && <>
-                &nbsp;
-                🦊
-                &nbsp;
-                <div className="text-sm leading-7 font-semibold text-gray-900">{address}</div>
-              </>}
-              {session && <>
-                <span className="ml-1 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-black">
-                  <b>{session.name}</b>
-                  <img className="w-6 h-6 rounded-full mx-auto ml-2" src={session.picture} alt={session.name} />
-                </span>
-                <Link href="/dashboard" alt="Go to dashboard">
-                  <span className="ml-2 whitespace-nowrap inline-flex items-center cursor-pointer justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700">
-                    Marketplace
+              {address.length > 0 && (
+                <>
+                  &nbsp; 🦊 &nbsp;
+                  <div className="text-sm leading-7 font-semibold text-gray-900">
+                    {address}
+                  </div>
+                </>
+              )}
+              {session && (
+                <>
+                  <span className="ml-1 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-black">
+                    <b>{session.name}</b>
+                    <img
+                      className="w-6 h-6 rounded-full mx-auto ml-2"
+                      src={session.picture}
+                      alt={session.name}
+                    />
                   </span>
-                </Link>
-                <span
-                  onClick={() =>
-                    signOut({
-                      callbackUrl: `${window.location.origin}`
-                    })
-                  }
-                  className="ml-1 whitespace-nowrap inline-flex items-center cursor-pointer justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-800 hover:bg-red-900">
-                  <LogoutIcon className="w-6 h-6 text-white" aria-hidden="true" />
-                  Logout
-                </span>
-              </>}
-
-              {/* ------ Display if not connected ------ */}
-              {!session && <>
-                <Link href="/login">
-                  <a
-                    href="#"
-                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700"
+                  <Link href="/dashboard" alt="Go to dashboard">
+                    <span className="ml-2 whitespace-nowrap inline-flex items-center cursor-pointer justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700">
+                      Marketplace
+                    </span>
+                  </Link>
+                  <span
+                    onClick={() =>
+                      signOut({
+                        callbackUrl: `${window.location.origin}`
+                      })
+                    }
+                    className="ml-1 whitespace-nowrap inline-flex items-center cursor-pointer justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-800 hover:bg-red-900"
                   >
-                    Login
-                  </a>
-                </Link>
-              </>}
+                    <LogoutIcon
+                      className="w-6 h-6 text-white"
+                      aria-hidden="true"
+                    />
+                    Logout
+                  </span>
+                </>
+              )}
 
-
+              {!session && (
+                <>
+                  <Link href="/login">
+                    <a
+                      href="#"
+                      className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700"
+                    >
+                      Login
+                    </a>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -183,7 +163,6 @@ const home = ({ session }) => {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-
           {/* Menu Mobile */}
           <Popover.Panel
             focus
@@ -215,14 +194,18 @@ const home = ({ session }) => {
                         href={item.href}
                         className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                       >
-                        <item.icon className="flex-shrink-0 h-6 w-6 text-purple-600" aria-hidden="true" />
-                        <span className="ml-3 text-base font-medium text-gray-900">{item.name}</span>
+                        <item.icon
+                          className="flex-shrink-0 h-6 w-6 text-purple-600"
+                          aria-hidden="true"
+                        />
+                        <span className="ml-3 text-base font-medium text-gray-900">
+                          {item.name}
+                        </span>
                       </a>
                     ))}
                   </nav>
                 </div>
               </div>
-
             </div>
           </Popover.Panel>
         </Transition>
@@ -230,8 +213,7 @@ const home = ({ session }) => {
 
       {/* Hero */}
       <main className="lg:relative">
-
-        <Hero heroButton={ heroButton }/>
+        <Hero heroButton={heroButton} />
       </main>
 
       <SToken />
@@ -246,8 +228,9 @@ const home = ({ session }) => {
 }
 
 // Get the github session at the runtime of the app
+
 export const getServerSideProps = async (context) => {
-  const session = await getSession(context);
+  const session = await getSession(context)
 
   // Get account from web3.js (not used atm)
   // web3.eth.getAccounts(function(err, accounts){
@@ -256,14 +239,13 @@ export const getServerSideProps = async (context) => {
   //   else console.log("User is logged in to MetaMask");
   // });
 
-  console.log("session", session)
+  console.log('session', session)
 
   return {
     props: {
-      session,
-    },
-  };
-};
+      session
+    }
+  }
+}
 
-export default home;
-
+export default home

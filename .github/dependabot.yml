@@ -5,6 +5,5 @@ updates:
     rebase-strategy: auto
     schedule:
       interval: "weekly"
-      
 
 version: 2

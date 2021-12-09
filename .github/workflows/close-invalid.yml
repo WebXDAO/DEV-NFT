@@ -2,7 +2,6 @@
 
 name: Close Issue/PR on adding invalid label
 
-
 on:
   issues:
     types: [labeled]
@@ -30,4 +29,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr close ${{ github.event.pull_request.html_url }}
-

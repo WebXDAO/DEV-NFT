@@ -65,7 +65,7 @@ Please follow all instructions in [the template](https://github.com/web3communit
 ## How to Contribute 🚀
 
 - Please create an [issue](issues) before creatin
-g a pull request.
+  g a pull request.
 - Fork the repository and create a branch for any issue that you are working on.
 - Create a pull request which will be reviewed and suggestions would be provided.
 - Add Screenshots to help us know what changes you have done.
@@ -143,5 +143,4 @@ git push origin your-branch-name
 [help-wanted]: https://github.com/web3community/DEV-NFT/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
 [issues]: https://github.com/web3community/DEV-NFT/issues
 [prs]: https://github.com/web3community/DEV-NFT/pulls
-
 [conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0/

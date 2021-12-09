@@ -1,21 +1,25 @@
+/* eslint-disable react/prop-types */ // Unsure about the types, need @mkubdev's assistance
+import React from 'react'
+import PropTypes from 'prop-types'
+
+import router from 'next/router'
+
 import Navbar from '../components/nav/dashboard-navbar'
 
-
-function Layout({ children, headerName, metamaskAddress, session }) {
-
-return (
+function Layout ({ children, headerName, metamaskAddress, session }) {
+  return (
     <>
-        <Navbar
-            headerName={headerName}
-            session={session}
-        />
-        
-        <main>{ children }</main>
+      <Navbar router={router} headerName={headerName} session={session} />
 
-        {/* footer? */}
+      <main>{children}</main>
+
+      {/* footer? */}
     </>
-)
-
+  )
 }
 
-export default Layout;
+Layout.propTypes = {
+  headerName: PropTypes.string
+}
+
+export default Layout
