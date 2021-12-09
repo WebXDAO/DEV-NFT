@@ -23,7 +23,7 @@ function SToken() {
     return (
         <>
             {/* S-TOKEN */}
-            <div className="bg-white">
+            <div className="bg-background">
                 <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
                     <div className="text-center justify-center item-center object-center">
                         <img
@@ -31,10 +31,10 @@ function SToken() {
                             src="/section-media.png"
                             alt=""
                         />
-                        <h3 className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+                        <h3 className="mt-1 text-4xl font-extrabold text-main sm:text-5xl sm:tracking-tight lg:text-6xl">
                             S-TOKEN
                         </h3>
-                        <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
+                        <p className="max-w-xl mt-5 mx-auto text-xl text-text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquam est sit amet quam dignissim varius. Fusce sit amet quam nec.
                         </p>
                     </div>

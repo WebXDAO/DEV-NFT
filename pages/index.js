@@ -69,7 +69,7 @@ const home = ({ session }) => {
       // Check if User is already connected by retrieving the accounts
       web3.eth.getAccounts()
         .then(async (addr) => {
-          
+
           // Set User account into state
           setAddress(addr);
 
@@ -86,7 +86,7 @@ const home = ({ session }) => {
   console.log("Current Github session: ", session);
 
   return (
-    <div className="relative bg-gray-50">
+    <div className="relative bg-background text-main">
       <Head>
         <title>Dev-nft</title>
         <link rel="icon" href="/favicon.ico" />
@@ -94,14 +94,14 @@ const home = ({ session }) => {
       </Head>
 
       {/* We should add this header inside a component */}
-      <Popover className="relative bg-white">
+      <Popover className="relative p-4">
         <div className="max-w-8xl mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center py-2 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <Link href="/" alt="DEV-NFT Home">
                 <a href="#">
                   <span className="sr-only">Devnft</span>
-                  <span className="text-2xl font-bold text-purple-600">Devnft</span>
+                  <span className="text-2xl font-bold">DevNFT</span>
 
                   {/* If we need a logo, put it here !
                   <img
@@ -114,7 +114,7 @@ const home = ({ session }) => {
               </Link>
             </div>
             <div className="-mr-2 -my-2 md:hidden">
-              <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+              <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-main hover:text-primary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
                 <span className="sr-only">Open menu</span>
                 <MenuIcon className="h-6 w-6" aria-hidden="true" />
               </Popover.Button>
@@ -133,15 +133,15 @@ const home = ({ session }) => {
                 &nbsp;
                 🦊
                 &nbsp;
-                <div className="text-sm leading-7 font-semibold text-gray-900">{address}</div>
+                <div className="text-sm leading-7 font-semibold text-text">{address}</div>
               </>}
               {session && <>
-                <span className="ml-1 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-black">
+                <span className="ml-1 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-primary">
                   <b>{session.name}</b>
                   <img className="w-6 h-6 rounded-full mx-auto ml-2" src={session.picture} alt={session.name} />
                 </span>
                 <Link href="/dashboard" alt="Go to dashboard">
-                  <span className="ml-2 whitespace-nowrap inline-flex items-center cursor-pointer justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700">
+                  <span className="ml-2 whitespace-nowrap inline-flex items-center cursor-pointer justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-base font-medium text-main bg-primary">
                     Marketplace
                   </span>
                 </Link>
@@ -151,8 +151,8 @@ const home = ({ session }) => {
                       callbackUrl: `${window.location.origin}`
                     })
                   }
-                  className="ml-1 whitespace-nowrap inline-flex items-center cursor-pointer justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-800 hover:bg-red-900">
-                  <LogoutIcon className="w-6 h-6 text-white" aria-hidden="true" />
+                  className="ml-1 whitespace-nowrap inline-flex items-center cursor-pointer justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-base font-medium text-main bg-primary">
+                  <LogoutIcon className="w-6 h-6 text-main" aria-hidden="true" />
                   Logout
                 </span>
               </>}
@@ -162,7 +162,7 @@ const home = ({ session }) => {
                 <Link href="/login">
                   <a
                     href="#"
-                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700"
+                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-main bg-primary"
                   >
                     Login
                   </a>
@@ -189,7 +189,7 @@ const home = ({ session }) => {
             focus
             className="absolute top-0 inset-x-0 z-10 p-2 transition transform origin-top-right md:hidden"
           >
-            <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+            <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-background divide-y-2 divide-gray-50">
               <div className="pt-5 pb-6 px-5">
                 <div className="flex items-center justify-between">
                   <div>
@@ -201,7 +201,7 @@ const home = ({ session }) => {
                     />
                   </div>
                   <div className="-mr-2">
-                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+                    <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-main focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
                       <span className="sr-only">Close menu</span>
                       <XIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
@@ -213,10 +213,10 @@ const home = ({ session }) => {
                       <a
                         key={item.name}
                         href={item.href}
-                        className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                        className="-m-3 p-3 flex items-center rounded-md hover:bg-primary"
                       >
-                        <item.icon className="flex-shrink-0 h-6 w-6 text-purple-600" aria-hidden="true" />
-                        <span className="ml-3 text-base font-medium text-gray-900">{item.name}</span>
+                        <item.icon className="flex-shrink-0 h-6 w-6 text-main" aria-hidden="true" />
+                        <span className="ml-3 text-base font-medium text-main">{item.name}</span>
                       </a>
                     ))}
                   </nav>
