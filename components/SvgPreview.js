@@ -5,7 +5,8 @@ function SvgPreview({ props, githubUsername, selectedRepos, description }) {
     // Uncomment to debug :
     console.log("svgCards username =>", githubUsername)
     console.log("svgCards repos =>", selectedRepos)
-    console.log("svgCards repos =>", description)
+    console.log("svgCards description =>", description)
+    
     let time = Date.now();
     console.log("Time=>", time);
     return (
@@ -15,6 +16,7 @@ function SvgPreview({ props, githubUsername, selectedRepos, description }) {
     width={330}
     height={330}
     xmlSpace="preserve"
+    id="svg_element"
     {...props}
   >
     <rect

@@ -24,12 +24,24 @@ function ReposList({ reposList }) {
     //     }
     // }
 
+    async function createBlobUrl() {
+        var svgElement = document.getElementById('svg_element');
+        console.log("svg element", svgElement)
+        let {width, height} = svgElement.getBBox();
+        let clonedSvgElement = svgElement.cloneNode(true);
+        let outerHTML = clonedSvgElement.outerHTML;
+        let blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
+    
+        let URL = window.URL || window.webkitURL || window;
+        let blobURL = URL.createObjectURL(blob);
+    
+        return blobURL;
+    }
+
 
     // Show the repos informations
     const [githubContent, setGithubContent] = useState({ price: '', name: '', repos_name: '', description: '' })
     async function selectRepo(repos) {
-        // console.log("clicked repos =>", repos)
-
         const reposName = repos.full_name;
         const ownerName = repos.owner.login;
         
@@ -37,6 +49,10 @@ function ReposList({ reposList }) {
         console.log(githubContent) // bug
 
         setOpen(true)
+
+        // Create blobUrl
+        var blobUrl = createBlobUrl();
+        console.log('blobUrl from create', blobUrl);
 
         // createMarket(reposName, ownerName);
     }

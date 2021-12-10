@@ -25,6 +25,7 @@ import Market from '../../artifacts/contracts/Market.sol/NFTMarket.json'
 import Layout from '../../layout/Layout'
 
 export default function CreateItem({ session, reposList, login }) {
+
   const [fileUrl, setFileUrl] = useState(null)
   const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
   const router = useRouter()
@@ -32,8 +33,10 @@ export default function CreateItem({ session, reposList, login }) {
 
   
 
+  // The file are upload first here
   async function onChange(e) {
     const file = e.target.files[0]
+    console.log(file)
     try {
       const added = await client.add(
         file,
@@ -41,6 +44,8 @@ export default function CreateItem({ session, reposList, login }) {
           progress: (prog) => console.log(`received: ${prog}`)
         }
       )
+
+      console.log("added", added)
       const url = `https://ipfs.infura.io/ipfs/${added.path}`
       setFileUrl(url)
     } catch (error) {
@@ -48,11 +53,67 @@ export default function CreateItem({ session, reposList, login }) {
     }
   }
 
+  async function createBlobUrl() {
+    var svgElement = document.getElementById('svg_element');
+    console.log("svg element", svgElement)
+    let {width, height} = svgElement.getBBox();
+    let clonedSvgElement = svgElement.cloneNode(true);
+    let outerHTML = clonedSvgElement.outerHTML;
+    let blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
+
+    let URL = window.URL || window.webkitURL || window;
+    let blobURL = URL.createObjectURL(blob);
+
+    return blobURL;
+  }
+
+  async function createPng() {
+    
+    var svgElement = document.getElementById('svg_element');
+    console.log("svg element", svgElement)
+    let {width, height} = svgElement.getBBox();
+    let clonedSvgElement = svgElement.cloneNode(true);
+    let outerHTML = clonedSvgElement.outerHTML;
+    let blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
+
+    let URL = window.URL || window.webkitURL || window;
+    let blobURL = URL.createObjectURL(blob);
+
+    let canvas = document.querySelector('canvas');
+
+    // Need image procession here
+    let image = new Image();
+    image.onload = () => {
+      
+      let canvas = document.createElement('canvas');
+      
+      canvas.widht = width;
+      
+      canvas.height = height;
+      let context = canvas.getContext('2d');
+      // draw image in canvas starting left-0 , top - 0  
+      context.drawImage(image, 0, 0, width, height );
+      //  downloadImage(canvas); need to implement
+    };
+    image.src = blobURL;
+
+
+    let png = canvas.toDataURL(); // default png
+    console.log("png dataUrl", png)
+    
+    return png;
+  }
+
   // Transit or fetch github selected repos
 
   async function createMarket() {
     const { name, description, price } = formInput
+    // const fileUrl = createPng();
+    console.log("createMarket fileUrl", fileUrl)
+
     if (!name || !description || !price || !fileUrl) return
+
+    
     /* first, upload to IPFS */
     const data = JSON.stringify({
       name, description, image: fileUrl
@@ -60,6 +121,7 @@ export default function CreateItem({ session, reposList, login }) {
     try {
       const added = await client.add(data)
       const url = `https://ipfs.infura.io/ipfs/${added.path}`
+
       /* after file is uploaded to IPFS, pass the URL to save it on Polygon */
       createSale(url)
     } catch (error) {
@@ -82,6 +144,7 @@ export default function CreateItem({ session, reposList, login }) {
     let value = event.args[2]
     let tokenId = value.toNumber()
 
+    // TODO: Udpate form here
     const price = ethers.utils.parseUnits(formInput.price, 'ether')
 
     /* then list the item for sale on the marketplace */
@@ -108,6 +171,39 @@ export default function CreateItem({ session, reposList, login }) {
         {/* If user is connected to github, it display user's repos list */}
         {session &&
           <>
+          <div className="flex justify-center">
+      <div className="w-1/2 flex flex-col pb-12">
+        <input 
+          placeholder="Asset Name"
+          className="mt-8 border rounded p-4"
+          onChange={e => updateFormInput({ ...formInput, name: e.target.value })}
+        />
+        <textarea
+          placeholder="Asset Description"
+          className="mt-2 border rounded p-4"
+          onChange={e => updateFormInput({ ...formInput, description: e.target.value })}
+        />
+        <input
+          placeholder="Asset Price in MATIC"
+          className="mt-2 border rounded p-4"
+          onChange={e => updateFormInput({ ...formInput, price: e.target.value })}
+        />
+        <input
+          type="file"
+          name="Asset"
+          className="my-4"
+          onChange={onChange}
+        />
+        {
+          fileUrl && (
+            <img className="rounded mt-4" width="350" src={fileUrl} />
+          )
+        }
+        <button onClick={createMarket} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">
+          Create Digital Asset
+        </button>
+      </div>
+    </div>
             <ReposList reposList={reposList} login={login} />
           </>
         }
