@@ -30,12 +30,12 @@ export default function Home({ session }) {
   useEffect(() => {
     loadNFTs()
   }, [])
-  async function loadNFTs() {    
+  async function loadNFTs() {
     const provider = new ethers.providers.JsonRpcProvider(rpcEndpoint)
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, provider)
     const data = await marketContract.fetchMarketItems()
-    
+
     const items = await Promise.all(data.map(async i => {
       const tokenUri = await tokenContract.tokenURI(i.tokenId)
       const meta = await axios.get(tokenUri)
@@ -52,13 +52,15 @@ export default function Home({ session }) {
       return item
     }))
     setNfts(items)
-    setLoadingState('loaded') 
+    setLoadingState('loaded')
   }
 
   if (loadingState === 'loaded' && !nfts.length) return (<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>)
   return (
     <Layout headerName="Dev-NFT Marketplace">
-      <MarketplaceList />
+      <div className="bg-background text-main">
+        <MarketplaceList />
+      </div>
     </Layout>
   )
 }
@@ -84,7 +86,7 @@ export const getServerSideProps = async (context) => {
     }
   }
 
-  
+
   return {
     props: {
       session
