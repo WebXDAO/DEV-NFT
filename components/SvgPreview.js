@@ -1,4 +1,7 @@
 import * as React from "react";
+import { NFTStorage, File } from 'nft.storage'
+import { Fragment, useState, useEffect } from 'react'
+
 
 function SvgPreview({ props, githubUsername, selectedRepos, description }) {
 
@@ -6,6 +9,45 @@ function SvgPreview({ props, githubUsername, selectedRepos, description }) {
     console.log("svgCards username =>", githubUsername)
     console.log("svgCards repos =>", selectedRepos)
     console.log("svgCards description =>", description)
+
+    // nft.storage
+    const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDE0Mjc3OEJmMWUwRjdDMTgzNkE4OEY2NkYxMDI4N2FCZDBhZWQ1Q2YiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTYzOTE1MTQxNTc1MywibmFtZSI6ImRldi1uZnQifQ.W65jnI1xCVqFdGCNsgohDRgHewr7X7VGsZ5UPjsy10s'
+    const client = new NFTStorage({ token: apiKey })
+
+    async function createBlobUrl() {
+
+        // Get svg element
+        var svgElement = document.getElementById('svg_element');
+        console.log("svg element", svgElement)
+
+        // Make blob
+        let clonedSvgElement = svgElement.cloneNode(true);
+        let outerHTML = clonedSvgElement.outerHTML;
+        let blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
+        console.log(blob)
+
+        // Make blob url
+        let URL = window.URL || window.webkitURL || window;
+        let blobURL = URL.createObjectURL(blob);
+        console.log(blobURL)
+
+        // nft.storage gateway
+        const metadata = await client.store({
+            name: 'nft-storage testing...',
+            description: 'Pin is not delicious beef!',
+            image: new File([blob], 'pinpie.jpg', { type: 'image/svg+xml' })
+        })
+        console.log(metadata)
+        console.log(metadata.url)
+    
+        return blobURL;
+    }
+
+    useEffect(() => {
+        var blobUrl = createBlobUrl();
+        console.log('blobUrl from create', blobUrl);
+    }, []);
+
     
     let time = Date.now();
     console.log("Time=>", time);

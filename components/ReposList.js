@@ -8,12 +8,20 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import SvgPreview from './SvgPreview'
 
+import { NFTStorage, File } from 'nft.storage'
+
 function ReposList({ reposList }) {
 
     const [fileUrl, setFileUrl] = useState(null)
     const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
     const [open, setOpen] = useState(false)
     const router = useRouter()
+
+    // nft.storage
+    const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDE0Mjc3OEJmMWUwRjdDMTgzNkE4OEY2NkYxMDI4N2FCZDBhZWQ1Q2YiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTYzOTE1MTQxNTc1MywibmFtZSI6ImRldi1uZnQifQ.W65jnI1xCVqFdGCNsgohDRgHewr7X7VGsZ5UPjsy10s'
+    const client = new NFTStorage({ token: apiKey })
+
+    
 
     // const useShareableState = () => {
     //     // Modal show / not-show
@@ -24,26 +32,37 @@ function ReposList({ reposList }) {
     //     }
     // }
 
-    async function createBlobUrl() {
-        var svgElement = document.getElementById('svg_element');
-        console.log("svg element", svgElement)
-        let {width, height} = svgElement.getBBox();
-        let clonedSvgElement = svgElement.cloneNode(true);
-        let outerHTML = clonedSvgElement.outerHTML;
-        let blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
+    // async function createBlobUrl() {
+    //     var svgElement = document.getElementById('svg_element');
+    //     console.log("svg element", svgElement)
+    //     // let {width, height} = svgElement.getBBox();
+
+    //     let clonedSvgElement = svgElement.cloneNode(true);
+    //     let outerHTML = clonedSvgElement.outerHTML;
+    //     let blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
     
-        let URL = window.URL || window.webkitURL || window;
-        let blobURL = URL.createObjectURL(blob);
+    //     let URL = window.URL || window.webkitURL || window;
+    //     let blobURL = URL.createObjectURL(blob);
+
+    //     // nft.storage gateway
+    //     const metadata = await client.store({
+    //         name: 'nft-storage testing...',
+    //         description: 'Pin is not delicious beef!',
+    //         image: new File([blobURL], 'pinpie.jpg', { type: 'image/jpg' })
+    //     })
+    //     console.log(metadata.url)
     
-        return blobURL;
-    }
+    //     return blobURL;
+    // }
 
 
     // Show the repos informations
     const [githubContent, setGithubContent] = useState({ price: '', name: '', repos_name: '', description: '' })
+
     async function selectRepo(repos) {
         const reposName = repos.full_name;
         const ownerName = repos.owner.login;
+        var svgElement = document.getElementById('svg_element');
         
         setGithubContent({ name: ownerName, repos_name: reposName, description: repos.description })
         console.log(githubContent) // bug
@@ -51,8 +70,8 @@ function ReposList({ reposList }) {
         setOpen(true)
 
         // Create blobUrl
-        var blobUrl = createBlobUrl();
-        console.log('blobUrl from create', blobUrl);
+        // var blobUrl = createBlobUrl();
+        // console.log('blobUrl from create', blobUrl);
 
         // createMarket(reposName, ownerName);
     }
@@ -60,10 +79,11 @@ function ReposList({ reposList }) {
     async function onChange(e) {
         const file = e.target.files[0]
         try {
+        
         const added = await client.add(
             file,
             {
-            progress: (prog) => console.log(`received: ${prog}`)
+                progress: (prog) => console.log(`received: ${prog}`)
             }
         )
         const url = `https://ipfs.infura.io/ipfs/${added.path}`
@@ -81,19 +101,20 @@ function ReposList({ reposList }) {
         console.log("createMarket() test:", name, description, price);
 
 
-        if (!name || !description || !price || !fileUrl) return
+        // if (!name || !description || !price || !fileUrl) return
+        
 
         /* first, upload to IPFS */
         const data = JSON.stringify({
         name, description, image: fileUrl
         })
-
+        console.log(data)
         try {
             const added = await client.add(data)
             const url = `https://ipfs.infura.io/ipfs/${added.path}`
 
             /* after file is uploaded to IPFS, pass the URL to save it on Polygon */
-            createSale(url)
+            // createSale(url)
 
         } catch (error) {
             console.log('Error uploading file: ', error)
@@ -138,7 +159,7 @@ function ReposList({ reposList }) {
 
     return (
         <>
-            {/* DIALOG */}
+            {/* DIALOG MODAL : optimization -> Add it to component */}
             <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" onClose={setOpen}>
                 <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 overflow-auto">
@@ -188,7 +209,7 @@ function ReposList({ reposList }) {
                         <button
                         type="button"
                         className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-purple-600 text-base font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:text-sm"
-                        onClick={() => setOpen(false)}
+                        onClick={() => createMarket()}
                         >
                         Create NFT
                         </button>
@@ -206,6 +227,7 @@ function ReposList({ reposList }) {
             </Dialog>
             </Transition.Root>
 
+            {/* REPOS LIST */}
             <div className="flex flex-col overflow-auto">
                 <h2 className="text-2xl font-semibold text-center mt-4">Select your repos</h2>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 m-10">

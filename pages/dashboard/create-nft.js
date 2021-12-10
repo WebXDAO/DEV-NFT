@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ethers } from 'ethers'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
 import { useRouter } from 'next/router'
@@ -31,15 +31,16 @@ export default function CreateItem({ session, reposList, login }) {
   const router = useRouter()
   const [open, setOpen] = useState(false);
 
-  
 
   // The file are upload first here
   async function onChange(e) {
     const file = e.target.files[0]
     console.log(file)
+
     try {
       const added = await client.add(
-        file,
+        // send blob instead of file
+        'blob:http://localhost:3000/143e830d-8015-48cd-b566-742dd667803c',
         {
           progress: (prog) => console.log(`received: ${prog}`)
         }
@@ -51,20 +52,6 @@ export default function CreateItem({ session, reposList, login }) {
     } catch (error) {
       console.log('Error uploading file: ', error)
     }
-  }
-
-  async function createBlobUrl() {
-    var svgElement = document.getElementById('svg_element');
-    console.log("svg element", svgElement)
-    let {width, height} = svgElement.getBBox();
-    let clonedSvgElement = svgElement.cloneNode(true);
-    let outerHTML = clonedSvgElement.outerHTML;
-    let blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
-
-    let URL = window.URL || window.webkitURL || window;
-    let blobURL = URL.createObjectURL(blob);
-
-    return blobURL;
   }
 
   async function createPng() {
@@ -107,6 +94,7 @@ export default function CreateItem({ session, reposList, login }) {
   // Transit or fetch github selected repos
 
   async function createMarket() {
+    console.log("coucou")
     const { name, description, price } = formInput
     // const fileUrl = createPng();
     console.log("createMarket fileUrl", fileUrl)
