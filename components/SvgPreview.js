@@ -6,12 +6,14 @@ function SvgPreview({ props, githubUsername, selectedRepos, description }) {
     console.log("svgCards username =>", githubUsername)
     console.log("svgCards repos =>", selectedRepos)
     console.log("svgCards repos =>", description)
+    let time = Date.now();
+    console.log("Time=>", time);
     return (
         <>
     <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={300}
-    height={300}
+    width={330}
+    height={330}
     xmlSpace="preserve"
     {...props}
   >
@@ -33,8 +35,8 @@ function SvgPreview({ props, githubUsername, selectedRepos, description }) {
       y={-150}
       rx={10}
       ry={10}
-      width={300}
-      height={300}
+      width={330}
+      height={330}
       transform="translate(150 150)"
     />
     <g>
@@ -59,7 +61,7 @@ function SvgPreview({ props, githubUsername, selectedRepos, description }) {
         transform="translate(104.62 150)"
       >
         <tspan
-          x={-49.62}
+          x={-70.62}
           y={5.03}
           style={{
             whiteSpace: "pre",
@@ -90,7 +92,7 @@ function SvgPreview({ props, githubUsername, selectedRepos, description }) {
         }}
         transform="translate(150 195.68)"
       >
-        <tspan x={-29.62} y={3.77}>
+        <tspan x={-111.62} y={3.77}>
           {description}
         </tspan>
       </text>
@@ -153,7 +155,7 @@ function SvgPreview({ props, githubUsername, selectedRepos, description }) {
         transform="matrix(.44 0 0 .44 255.8 13.61)"
       >
         <tspan x={-88.02} y={9.74}>
-          {"{TimeStamp}"}
+          {time}
         </tspan>
       </text>
     </g>
