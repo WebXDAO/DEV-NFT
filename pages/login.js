@@ -99,7 +99,7 @@ function Login({ session }) {
         // console.log("signature", signature)
 
         // redirect to the dashboard after loggin
-        router.push('/creator-dashboard');
+        router.push('/dashboard');
     }
 
     console.log("Current Github session: ", session);
