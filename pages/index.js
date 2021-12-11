@@ -49,6 +49,7 @@ const home = ({ session }) => {
   // ---- METAMASK ----
   const [web3, setWeb3] = useState([])
   const [address, setAddress] = useState([])
+  const [count, setCount] = useState([0])
   const [heroButton, setHeroButton] = useState('Connect Wallet');
 
   // MetaMask injects the window.ethereum object into our browser whenever the extension
@@ -56,17 +57,23 @@ const home = ({ session }) => {
   // and put it into our state for later use.
   useEffect(() => {
 
+    
     const checkConnection = async () => {
 
       // Check if browser is running Metamask
-      let web3;
+      let web3 = null;
       if (window.ethereum) {
         web3 = new Web3(window.ethereum);
+        setCount(1);
       } else if (window.web3) {
         web3 = new Web3(window.web3.currentProvider);
       };
-
+console.log(web3)
       // Check if User is already connected by retrieving the accounts
+      if(web3===null){
+        setHeroButton('Please Install Metamask Wallet')
+      }
+      if(web3){
       web3.eth.getAccounts()
         .then(async (addr) => {
           
@@ -79,6 +86,7 @@ const home = ({ session }) => {
           }
         });
     };
+  }
     checkConnection();
 
   }, [])

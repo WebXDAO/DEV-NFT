@@ -1,9 +1,8 @@
-import React from 'react';
 import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
-
+import Image from "next/image";
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
 
@@ -11,8 +10,6 @@ import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
 import {
     nftaddress, nftmarketaddress
 } from '../config'
-
-
 
 
 function MarketplaceList() {
@@ -77,6 +74,7 @@ function MarketplaceList() {
 
     console.log("nft object", nfts)
 
+    if (loadingState === 'loaded' && !nfts.length) return (<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>)
     return (
         <>
             <div className="flex justify-center">
@@ -85,7 +83,8 @@ function MarketplaceList() {
                         {
                             nfts.map((nft, i) => (
                                 <div key={i} className="border shadow rounded-xl overflow-hidden">
-                                    <img src={nft.image} />
+                                    {/* <Image src={nft.image} layout="fill"/> */}
+                                    <img src={nft.image} className="object-contain"/>
                                     <div className="p-4">
                                         <p style={{ height: '64px' }} className="text-2xl font-semibold">{nft.name}</p>
                                         <div style={{ height: '70px', overflow: 'hidden' }}>

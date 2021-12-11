@@ -3,13 +3,15 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/outline'
 
-export default function ReposModal({ isOpen, reposList }) {
+export default function ReposModal({ isOpen, username, reposname }) {
   const [open, setOpen] = useState(isOpen)
+
+  console.log('reposModal open:', open, isOpen)
 
   return (
       <>
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" onClose={setOpen}>
+    <Transition.Root show={isOpen} as={Fragment}>
+      <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" onClose={setOpen(false)}>
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 overflow-auto">
           <Transition.Child
             as={Fragment}
@@ -40,13 +42,7 @@ export default function ReposModal({ isOpen, reposList }) {
               <div>
                 <div className="mt-3 text-center sm:mt-5">
                   <div>
-
-                      {/* Ici on peut mettre le compo repostList */}
-                      {
-                        reposList.map((repos, i) => (
-                            <p>{ repos.name }</p>
-                        ))
-                    }
+{/* cou  */} coucou
                   </div>
                 </div>
               </div>
