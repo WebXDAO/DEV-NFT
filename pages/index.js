@@ -47,7 +47,6 @@ const home = ({ session }) => {
   ]
 
   // ---- METAMASK ----
-  const [web3, setWeb3] = useState([])
   const [address, setAddress] = useState([])
   const [count, setCount] = useState([0])
   const [heroButton, setHeroButton] = useState('Connect Wallet');
@@ -96,7 +95,7 @@ console.log(web3)
   return (
     <div className="relative bg-gray-50">
       <Head>
-        <title>Dev-nft</title>
+        <title>DevNFT</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </Head>
@@ -108,8 +107,8 @@ console.log(web3)
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <Link href="/" alt="DEV-NFT Home">
                 <a href="#">
-                  <span className="sr-only">Devnft</span>
-                  <span className="text-2xl font-bold text-purple-600">Devnft</span>
+                  <span className="sr-only">DevNFT</span>
+                  <span className="text-2xl font-bold text-purple-600">DevNFT</span>
 
                   {/* If we need a logo, put it here !
                   <img
@@ -238,7 +237,6 @@ console.log(web3)
 
       {/* Hero */}
       <main className="lg:relative">
-
         <Hero heroButton={ heroButton }/>
       </main>
 

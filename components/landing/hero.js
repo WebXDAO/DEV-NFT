@@ -37,8 +37,8 @@ function Hero({ heroButton }) {
             <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
                 <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
                     <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-                        <span className="block xl:inline">Lorem ipsum dolor sit amet,</span>{' '}
-                        <span className="block text-purple-600 xl:inline">consectetur adipiscing elit</span>
+                        <span className="block xl:inline">The NFT Marketplace,</span>{' '}
+                        <span className="block text-purple-600 xl:inline">for Open Source Repositories and Contributors</span>
                     </h1>
                     <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquam est sit amet quam dignissim varius. Fusce sit amet quam nec
