@@ -8,100 +8,59 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import SvgPreview from './SvgPreview'
 
-import { NFTStorage, File } from 'nft.storage'
+import {
+    nftaddress, nftmarketaddress
+  } from '../config'
+
+import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
+import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
+
 
 function ReposList({ reposList }) {
 
     const [fileUrl, setFileUrl] = useState(null)
-    const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
     const [open, setOpen] = useState(false)
+    const [priceInput, updatePriceInput] = useState({ price: '' })
     const router = useRouter()
 
-    // nft.storage
-    const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDE0Mjc3OEJmMWUwRjdDMTgzNkE4OEY2NkYxMDI4N2FCZDBhZWQ1Q2YiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTYzOTE1MTQxNTc1MywibmFtZSI6ImRldi1uZnQifQ.W65jnI1xCVqFdGCNsgohDRgHewr7X7VGsZ5UPjsy10s'
-    const client = new NFTStorage({ token: apiKey })
-
+    const [sharedState, setSharedState] = useState({});
     
-
-    // const useShareableState = () => {
-    //     // Modal show / not-show
-    //     const [modalOpen, setModalOpen] = useState(false);
-    //     return {
-    //         modalopen,
-    //         setModalOpen
-    //     }
-    // }
-
-    // async function createBlobUrl() {
-    //     var svgElement = document.getElementById('svg_element');
-    //     console.log("svg element", svgElement)
-    //     // let {width, height} = svgElement.getBBox();
-
-    //     let clonedSvgElement = svgElement.cloneNode(true);
-    //     let outerHTML = clonedSvgElement.outerHTML;
-    //     let blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
-    
-    //     let URL = window.URL || window.webkitURL || window;
-    //     let blobURL = URL.createObjectURL(blob);
-
-    //     // nft.storage gateway
-    //     const metadata = await client.store({
-    //         name: 'nft-storage testing...',
-    //         description: 'Pin is not delicious beef!',
-    //         image: new File([blobURL], 'pinpie.jpg', { type: 'image/jpg' })
-    //     })
-    //     console.log(metadata.url)
-    
-    //     return blobURL;
-    // }
-
-
     // Show the repos informations
-    const [githubContent, setGithubContent] = useState({ price: '', name: '', repos_name: '', description: '' })
+    const [githubContent, setGithubContent] = useState({
+      price: '',
+      name: '',
+      repos_name: '',
+      description: ''
+    })
 
+    // Infura client
+    const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+
+
+    /**
+     * Open the modal and set githubContent
+     * @param {*} repos 
+     */
     async function selectRepo(repos) {
-        const reposName = repos.full_name;
-        const ownerName = repos.owner.login;
-        var svgElement = document.getElementById('svg_element');
         
-        setGithubContent({ name: ownerName, repos_name: reposName, description: repos.description })
-        console.log(githubContent) // bug
+        // Load the datas of the selected repos
+        setGithubContent({
+          name: repos.full_name,
+          repos_name: repos.owner.login,
+          description: repos.description,
+          price: ''
+        })
 
+        // Open the modal with the svgPreview
         setOpen(true)
-
-        // Create blobUrl
-        // var blobUrl = createBlobUrl();
-        // console.log('blobUrl from create', blobUrl);
-
-        // createMarket(reposName, ownerName);
     }
 
-    async function onChange(e) {
-        const file = e.target.files[0]
-        try {
-        
-        const added = await client.add(
-            file,
-            {
-                progress: (prog) => console.log(`received: ${prog}`)
-            }
-        )
-        const url = `https://ipfs.infura.io/ipfs/${added.path}`
-        setFileUrl(url)
-        } catch (error) {
-        console.log('Error uploading file: ', error)
-        }
-    }
-
-    async function createMarket(name, description, price) {
-        // const { name, description, price } = formInput
-        // const { name, description, price } = githubContent
-
-        // where name = reposName
+    async function createMarket() {
+        const { name, description, price } = githubContent
         console.log("createMarket() test:", name, description, price);
 
 
-        // if (!name || !description || !price || !fileUrl) return
+        if (!name || !description || !price || !fileUrl) return
         
 
         /* first, upload to IPFS */
@@ -122,6 +81,21 @@ function ReposList({ reposList }) {
     }
 
     async function createSale(url) {
+        const { name, description } = githubContent
+
+        console.log("createSale =>", {
+            url: url.sharedState,
+            githubContent: githubContent
+        });
+
+        // if (!name || !description || !price || !sharedState) return
+
+        const data = JSON.stringify({
+            name, description, image: sharedState
+        })
+
+        const added = await client.add(data)
+        const urlIPFS = `https://ipfs.infura.io/ipfs/${added.path}`
 
         const web3Modal = new Web3Modal()
         const connection = await web3Modal.connect()
@@ -130,13 +104,15 @@ function ReposList({ reposList }) {
 
         /* next, create the item */
         let contract = new ethers.Contract(nftaddress, NFT.abi, signer)
-        let transaction = await contract.createToken(url)
+        let transaction = await contract.createToken(urlIPFS)
         let tx = await transaction.wait()
         let event = tx.events[0]
         let value = event.args[2]
         let tokenId = value.toNumber()
 
-        const price = ethers.utils.parseUnits(formInput.price, 'ether')
+        // const price = ethers.utils.parseUnits(formInput.price, 'ether')
+        console.log("[Price control] => ", priceInput.price)
+        const price = ethers.utils.parseUnits(priceInput.price, 'ether')
 
         /* then list the item for sale on the marketplace */
         contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
@@ -152,8 +128,6 @@ function ReposList({ reposList }) {
         // the dashboard.
         router.push('/dashboard')
     }
-
-
 
         
 
@@ -192,24 +166,49 @@ function ReposList({ reposList }) {
                     <div>
                         <div className="mt-3 text-center sm:mt-5">
                         <div>
-                            {/* The svg preview is so large.... it need some fix */}
+
+                            {/* ==== SVG PREVIEW ==== */}
                             <SvgPreview
                                 githubUsername={githubContent.name}
                                 selectedRepos={githubContent.repos_name}
                                 description={githubContent.description}
+
+                                setSharedState={setSharedState}
+                                sharedState={sharedState}
                             />
-                            <p>github name: {githubContent.name}</p>
-                            <p>repos name: {githubContent.repos_name}</p>
-                            <p>repos description: {githubContent.description}</p>
+                            {/* ==== SVG PREVIEW ==== */}
 
                         </div>
                         </div>
                     </div>
                     <div className="mt-5 sm:mt-6 space-y-3">
+                    <div>
+                        <label htmlFor="price" className="block text-sm font-medium text-gray-700">
+                        Price
+                        </label>
+                        <div className="mt-1 relative rounded-md shadow-sm">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        </div>
+                        <input
+                            type="text"
+                            name="price"
+                            id="price"
+                            className="focus:ring-purple-500 focus:border-purple-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
+                            placeholder="0.00"
+                            aria-describedby="price-currency"
+                            onChange={e => updatePriceInput({ ...priceInput, price: e.target.value })}
+                        />
+                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                            <span className="text-gray-500 sm:text-sm" id="price-currency">
+                            ETH
+                            </span>
+                        </div>
+                        </div>
+                    </div>
                         <button
                         type="button"
                         className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-purple-600 text-base font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:text-sm"
-                        onClick={() => createMarket()}
+                        onClick={() => createSale({ sharedState })}
                         >
                         Create NFT
                         </button>
