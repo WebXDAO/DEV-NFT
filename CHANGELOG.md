@@ -1,3 +1,12 @@
+# [0.1.0](https://github.com/web3community/DEV-NFT/compare/v1.0.4...v0.1.0) (2021-12-11)
+
+
+### Bug Fixes
+
+* url redirection  ([2035a20](https://github.com/web3community/DEV-NFT/commit/2035a2063d46ac49f60083dd94188bf4133786ce))
+
+
+
 ## [1.0.4](https://github.com/web3community/DEV-NFT/compare/v1.0.3...v1.0.4) (2021-11-20)
 
 
