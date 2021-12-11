@@ -35,7 +35,10 @@ function SToken() {
                             S-TOKEN
                         </h3>
                         <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquam est sit amet quam dignissim varius. Fusce sit amet quam nec.
+                        
+                        Want to support your favorite up-and-coming organizations?
+
+Buy their DEV-NFT's with a seamless marketplace experience, to support your favorite projects! 
                         </p>
                     </div>
                 </div>
