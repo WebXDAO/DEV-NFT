@@ -95,8 +95,8 @@ function Navbar({  router, headerName }) {
                                     <div className="flex-shrink-0 cursor-pointer">
                                         <Link href="/">
                                             <img
-                                                className="h-8 w-8"
-                                                src="/section-media.png"
+                                                className="h-16 w-16"
+                                                src="/DevNFT.svg"
                                                 alt="Workflow"
                                             />
                                         </Link>
