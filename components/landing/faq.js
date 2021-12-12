@@ -14,7 +14,27 @@ function Faq() {
         {
             question: 'What\'s DevNFT?',
             answer:
-                'The DevNFT app enable users to create NFTs of a repository via GitHub OAuth and cryptographically sign the repos with their Ethereum wallet. Then, the app creates ("mints") an NFT representation of the commit on the Polygon/Matic blockchain. ',
+                'The DevNFT app enable users to create NFTs of a repository via GitHub OAuth and cryptographically sign the repos with their Ethereum wallet. Then, the app creates ("mints") an NFT representation of the commit on the Polygon/Matic blockchain.⛓️',
+        },
+        {
+            question: 'Why would I want to buy a DevNFT?',
+            answer:
+                'Who knows a project becomes next linux kernel or CURL and you like to be a part of it, Owning a DevNFT you can.\nAnd by buying a DevNFT you can support the project in which you truly believe in.✅️ ',
+        },
+        {
+            question: 'How to buy a DevNFT?',
+            answer:
+                'Connect your wallet, Sign in with your GitHub account then Select the Repository chose a price & Mint on Polygon. See super easy!😍️',
+        },
+        {
+            question: 'If I buy DevNFT, will I become the owner of Repo?',
+            answer:
+                'DevNFT is a type of autograph by the developer or repo owner which is sold to make you feel possession or part of the project. Generally, this does not transfer ownership. But, If a developer wants, they can sell their work through the DevNFT. 🎨️',
+        },
+        {
+            question: 'What if a person forks a repo and creates an NFT?',
+            answer:
+                'Malpractices of copying the others work is years old, but with DevNFT you get all repo information. A person can always visit the repo and verify',
         },
         // More questions...
     ]
