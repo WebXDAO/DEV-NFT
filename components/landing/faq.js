@@ -14,7 +14,7 @@ function Faq() {
         {
             question: 'What\'s DevNFT?',
             answer:
-                'The DevNFT app enable users to create NFTs of a repository via GitHub OAuth and cryptographically sign the repos with their Ethereum wallet. Then, the app creates ("mints") an NFT representation of the commit on the Polygon/Matic blockchain.⛓️',
+                'The DevNFT app enable users to create NFTs of a repository via GitHub OAuth and cryptographically sign the repos with their MetaMask wallet. Then, the app creates ("mints") an NFT representation of their Repo on the Polygon/Matic blockchain.⛓️',
         },
         {
             question: 'Why would I want to buy a DevNFT?',
