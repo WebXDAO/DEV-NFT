@@ -41,7 +41,7 @@ function Hero({ heroButton }) {
                         <span className="block text-purple-600 xl:inline">for Open Source Repositories and Contributors</span>
                     </h1>
                     <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquam est sit amet quam dignissim varius. Fusce sit amet quam nec
+                    Mint your own GitHub repositories as DEV-NFT's, and support the projects you truly believe in !
                     </p>
                     <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                         <div className="rounded-md shadow">

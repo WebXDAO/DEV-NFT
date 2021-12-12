@@ -17,7 +17,8 @@ import {
     SupportIcon,
     ViewGridIcon,
     XIcon,
-    LogoutIcon
+    LogoutIcon,
+    FireIcon
   } from '@heroicons/react/outline';
 
 
@@ -26,12 +27,10 @@ function Features() {
 
     // Features section data
     const features = [
-        { name: 'Push to Deploy', icon: CloudUploadIcon },
-        { name: 'SSL Certificates', icon: LockClosedIcon },
-        { name: 'Simple Queues', icon: RefreshIcon },
-        { name: 'Advanced Security', icon: ShieldCheckIcon },
-        // { name: 'Powerful API', icon: CogIcon },
-        // { name: 'Database Backups', icon: ServerIcon },
+        { name: 'Connect Wallet', description: 'We have Metamask! Enable metamask after signing up to be able to mint your repos', icon: ShieldCheckIcon },
+        { name: 'Connect GitHub', description: 'Login with your GitHub account to retrieve your respositories', icon: LockClosedIcon },
+        { name: 'Select GitHub repository', description: 'Select your favorite GitHub repository, and create an NFT ✨', icon: FireIcon },
+        { name: 'Mint it!', description: 'Turn your GitHub repository into a piece of history and sell it!', icon: ShieldCheckIcon },
         // More features...
     ]
 
@@ -45,8 +44,7 @@ function Features() {
                         Create and sell your NFTs
                     </p>
                     <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-                        Phasellus lorem quam molestie id quisque diam aenean nulla in. Accumsan in quis quis nunc, ullamcorper
-                        malesuada. Eleifend condimentum id viverra nulla.
+                    Browse through your repositories and mint them as NFT's to sell them to the people who believe in your project! Make your repository a piece of art that will be passed on from one person to another for generations to come!
                     </p>
                     <div className="mt-12">
                         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -61,7 +59,7 @@ function Features() {
                                             </div>
                                             <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">{feature.name}</h3>
                                             <p className="mt-5 text-base text-gray-500">
-                                                Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                                                {feature.description}
                                             </p>
                                         </div>
                                     </div>

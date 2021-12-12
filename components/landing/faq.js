@@ -7,14 +7,14 @@ function Faq() {
     // Faq section data
     const faqs = [
         {
-            question: 'Question 1',
+            question: 'What are NFTs?',
             answer:
-                'You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.',
+                'NFTs (non-fungible tokens) are blockchain-based records that uniquely represent pieces of digital media (say, a digital art piece, a tweet, or a repository 👀). In more practical terms, an NFT can be seen as a digital autograph created by the author of the piece of media the NFT represents. By signing it, the author is guaranteeing its authenticity. ',
         },
         {
-            question: 'Question 2',
+            question: 'What\'s DevNFT?',
             answer:
-                'You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.',
+                'The DevNFT app enable users to create NFTs of a repository via GitHub OAuth and cryptographically sign the repos with their Ethereum wallet. Then, the app creates ("mints") an NFT representation of the commit on the Polygon/Matic blockchain. ',
         },
         // More questions...
     ]
@@ -29,11 +29,11 @@ function Faq() {
                         <div>
                             <h2 className="text-3xl font-extrabold text-gray-900">Frequently asked questions</h2>
                             <p className="mt-4 text-lg text-gray-500">
-                                Can’t find the answer you’re looking for? Reach out to our{' '}
-                                <a href="#" className="font-medium text-purple-600 hover:text-purple-500">
-                                    customer support
+                                Can’t find the answer you’re looking for? Open an issue to our{' '}
+                                <a href="https://github.com/web3community/DEV-NFT" className="font-medium text-purple-600 hover:text-purple-500">
+                                    GitHub
                                 </a>{' '}
-                                team.
+                                repository.
                             </p>
                         </div>
                         <div className="mt-12 lg:mt-0 lg:col-span-2">
