@@ -8,7 +8,7 @@ let Web3 = require('web3');
 function Hero({ heroButton }) {
 
   const router = useRouter();
-   
+
 
   function connectToMetamask() {
     window.ethereum ?
@@ -62,7 +62,7 @@ function Hero({ heroButton }) {
             <div className="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
                 <img
                     className="absolute inset-0 w-full h-full object-cover"
-                    src="https://img5.goodfon.com/wallpaper/nbig/c/77/iota-cryptocurrency-blockchain-valiuta-fon-logo.jpg"
+                    src="/hero.png"
                     alt=""
                 />
             </div>
