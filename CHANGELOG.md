@@ -1,3 +1,12 @@
+## [0.1.1](https://github.com/web3community/DEV-NFT/compare/v0.1.0...v0.1.1) (2021-12-12)
+
+
+### Bug Fixes
+
+* MATICsymbol ([#25](https://github.com/web3community/DEV-NFT/issues/25)) ([3131fdf](https://github.com/web3community/DEV-NFT/commit/3131fdf9a0ab251d52324bd56ea8fb176a4533c1))
+
+
+
 # [0.1.0](https://github.com/web3community/DEV-NFT/compare/v1.0.4...v0.1.0) (2021-12-11)
 
 
@@ -31,15 +40,6 @@
 ### Reverts
 
 * 29a5dc3aebb5b140dba8fab7a040910f4eddc3c6 ([dc06d52](https://github.com/web3community/DEV-NFT/commit/dc06d522293b70f6e9963f842dc1a10eaf780eb2))
-
-
-
-## [1.0.1](https://github.com/web3community/DEV-NFT/compare/503c8898727a2de072cc751b47c8d2f80c50c9d6...v1.0.1) (2021-11-13)
-
-
-### Reverts
-
-* 39a4d6e16a48cce0986d430976c9c85cf4f5aca8 ([503c889](https://github.com/web3community/DEV-NFT/commit/503c8898727a2de072cc751b47c8d2f80c50c9d6))
 
 
 
