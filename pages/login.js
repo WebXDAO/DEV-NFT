@@ -184,7 +184,7 @@ function Login({ session }) {
                 <div className="hidden lg:block relative w-0 flex-1">
                     <img
                         className="absolute inset-0 h-full w-full object-cover"
-                        src="https://img5.goodfon.com/wallpaper/nbig/c/77/iota-cryptocurrency-blockchain-valiuta-fon-logo.jpg"
+                        src="/hero.png"
                         alt=""
                     />
                 </div>
