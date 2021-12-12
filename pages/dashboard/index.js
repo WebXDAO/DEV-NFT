@@ -57,7 +57,7 @@ export default function Home({ session }) {
 
   if (loadingState === 'loaded' && !nfts.length) return (<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>)
   return (
-    <Layout headerName="Dev-NFT Marketplace">
+    <Layout headerName="DevNFT Marketplace">
       <MarketplaceList />
     </Layout>
   )
