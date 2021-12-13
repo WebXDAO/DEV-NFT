@@ -63,7 +63,8 @@ export default function Home({ session }) {
   )
 }
 
-// Get the github session at the runtime of the app
+
+// Get the github session
 export const getServerSideProps = async (context) => {
 
   // Get github login
@@ -81,6 +82,14 @@ export const getServerSideProps = async (context) => {
           reposList
         },
       };
+    }
+  }
+  // Redirect the user if not logged to github
+  else {
+
+    // note: we should trigger an alert if the user isn't connect
+    return {
+      redirect: { destination: '/login', permanent: false }
     }
   }
 
