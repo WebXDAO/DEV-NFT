@@ -88,19 +88,28 @@ function MarketplaceList() {
                                     {/*temp card testing*/}
                                                                         {/*<!-- component -->*/}
                                     {/*<!-- This is an example component -->*/}
-                                    <div class=" w-full h-full flex justify-center items-center">
-                                        <div class="relative flex flex-col justify-center rounded-xl w-full">
-                                            <div class="top-0 left-0 mt-3 px-1 rounded-lg absolute z-30 bg-green-500 text-gray-100 text-xs md:text-sm font-medium md:block">{nft.price} MATIC</div>
-                                                <div class="relative">
+                                    <div className=" w-full h-full flex justify-center items-center">
+                                        <div className="relative flex flex-col justify-center rounded-xl w-full">
+                                            <div className="top-0 left-0 mt-3 px-1 rounded-lg absolute z-30 bg-green-500 text-gray-100 text-xs md:text-sm font-medium md:block">{nft.price} MATIC</div>
+                                                <div className="relative m-4">
                                                 {/*<!-- :src="image.largeImageURL"     -->*/}
-                                                    <img src={nft.image} class="object-contain hover:object-scale-down rounded-t-xl w-full" alt=""/>
+                                                    <img src={nft.image} className="object-contain rounded-t-xl w-full" alt=""/>
                                                 </div>
-                                                <div class="px-2 py-1">
+                                                <div className="px-2 py-1 ">
                                                     {/*<!-- Product Title -->*/}
-                                                    <div class="text-sm md:text-base font-bold pr-2">{nft.name}</div>
-                                                    <p style={{ height: '70px', overflow: 'hidden' }} class="pb-1 md:pb-2 text-xs md:text-sm text-gray-500">{nft.description}</p>
+                                                    <div className="mx-auto px-2 py-2">
+                                                        <div className="text-sm md:text-base font-bold pr-2">{nft.name}</div>
+                                                        <p  className="h-16 pb-1 md:pb-2 text-xs md:text-sm text-gray-500">{nft.description}</p>
+                                                    </div>
+                                                    
                                                     {/*<!-- Tombol pesan -->*/}
-                                                    <button class="font-bold inset-x-0 bottom-0 flex justify-center bg-purple-600 hover:bg-white text-sm md:text-base border hover:border-2 hover:border-purple-800 rounded-xl w-14 md:w-16 p-1 text-gray-100 hover:text-blue-900" onClick={() => buyNft(nft)}>Buy</button>
+                                                    {/* <button class="font-bold inset-x-0 bottom-0 flex justify-center bg-purple-600 hover:bg-white text-sm md:text-base border hover:border-2 hover:border-purple-800 rounded-xl w-14 md:w-16 p-1 text-gray-100 hover:text-blue-900" onClick={() => buyNft(nft)}>Buy</button> */}
+                                                    <span
+                                                        onClick={() => buyNft(nft)}
+                                                        className="hover:cursor-pointer font-bold inset-x-0  flex items-center justify-center px-4 py-2 mb-2 mx-2 text-sm rounded-md text-white bg-purple-800 hover:bg-purple-700 md:py-2 md:text-sm md:px-10"
+                                                    >
+                                                        Buy
+                                                    </span>
                                                 </div>
                                         </div> 
                                     </div>
