@@ -28,7 +28,9 @@ import {
   SupportIcon,
   ViewGridIcon,
   XIcon,
-  LogoutIcon
+  LogoutIcon,
+  LoginIcon,
+  
 } from '@heroicons/react/outline';
 // If you need another icon, just add his name in the list below
 // from https://unpkg.com/browse/@heroicons/react@1.0.5/outline/
@@ -43,7 +45,8 @@ const home = ({ session }) => {
 
   // Mobile menu data
   const mobileMenu = [
-    { name: 'Dashboard', icon: CogIcon, href:'/dashboard' }
+    { name: 'Login', icon: LoginIcon, href: '/login'},
+    { name: 'Marketplace', icon: PlayIcon, href:'/dashboard' }
   ]
 
   // ---- METAMASK ----
@@ -264,8 +267,6 @@ export const getServerSideProps = async (context) => {
   //   else if (accounts.length == 0) console.log("User is not logged in to MetaMask");
   //   else console.log("User is logged in to MetaMask");
   // });
-
-  console.log("session", session)
 
   return {
     props: {

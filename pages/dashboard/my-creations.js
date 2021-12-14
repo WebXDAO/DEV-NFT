@@ -2,6 +2,9 @@ import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
+import {
+  getSession,
+} from 'next-auth/client';
 
 import {
   nftmarketaddress, nftaddress
@@ -97,3 +100,27 @@ export default function MyCreation() {
     </Layout>
   )
 }
+
+// Get the github session at the runtime of the app
+export const getServerSideProps = async (context) => {
+
+  // Get github login
+  const session = await getSession(context)
+  if (session) {
+    // Do something...
+  }
+  // Redirect the user if not logged to github
+  else {
+
+    // note: we should trigger an alert if the user isn't connect
+    return {
+      redirect: { destination: '/dashboard', permanent: false }
+    }
+  }
+
+  return {
+    props: {
+      session
+    }
+  };
+};

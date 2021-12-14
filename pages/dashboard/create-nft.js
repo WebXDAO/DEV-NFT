@@ -7,7 +7,6 @@ import {
   getSession,
   signIn,
   signOut,
-  useSession
 } from 'next-auth/client';
 import {
   LoginIcon
@@ -72,6 +71,14 @@ export const getServerSideProps = async (context) => {
           login
         },
       };
+    }
+  }
+  // Redirect the user if not logged to github
+  else {
+    
+    // note: we should trigger an alert if the user isn't connect
+    return {
+      redirect: { destination: '/dashboard', permanent: false }
     }
   }
 

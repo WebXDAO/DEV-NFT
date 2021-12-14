@@ -63,31 +63,24 @@ export default function Home({ session }) {
   )
 }
 
-// Get the github session at the runtime of the app
+
+// Get the github session
 export const getServerSideProps = async (context) => {
 
   // Get github login
   const session = await getSession(context)
   if (session) {
-    var login = session.profile.login;
-
-    if (login) {
-      const res = await fetch('https://api.github.com/users/' + login + '/repos');
-      const reposList = await res.json();
-
-      return {
-        props: {
-          session,
-          reposList
-        },
-      };
-    }
+    return {
+      props: {
+        session,
+      },
+    };
   }
 
-  
   return {
     props: {
       session
-    },
-  };
+    }
+  }
+
 };
