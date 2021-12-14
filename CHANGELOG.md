@@ -1,3 +1,13 @@
+## [0.2.1](https://github.com/web3community/DEV-NFT/compare/v0.2.0...v0.2.1) (2021-12-14)
+
+
+### Bug Fixes
+
+* session return missing ([9aad9c5](https://github.com/web3community/DEV-NFT/commit/9aad9c5f267eb2f38d3a15d5b6929713e3e53e25))
+* the user canno't access the marketplace if not logged to github. We redirect the user to the /login page ([c080a95](https://github.com/web3community/DEV-NFT/commit/c080a951dfe02d1313c4aff3518bdaa6d1b5675c))
+
+
+
 # [0.2.0](https://github.com/web3community/DEV-NFT/compare/v0.1.1...v0.2.0) (2021-12-12)
 
 
@@ -31,15 +41,6 @@
 ### Bug Fixes
 
 * correct use of Markdown links ([#8](https://github.com/web3community/DEV-NFT/issues/8)) ([351318b](https://github.com/web3community/DEV-NFT/commit/351318bbfad08a10d50fc504759fccca9366b1df))
-
-
-
-## [1.0.3](https://github.com/web3community/DEV-NFT/compare/v1.0.2...v1.0.3) (2021-11-15)
-
-
-### Bug Fixes
-
-* Update Discord links ([f097734](https://github.com/web3community/DEV-NFT/commit/f097734f9593630246bc718e76b363f6f42319f9))
 
 
 
