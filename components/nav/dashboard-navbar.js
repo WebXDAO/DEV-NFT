@@ -112,7 +112,7 @@ function Navbar({  router, headerName }) {
                                                         className={classNames(
                                                             router.asPath == item.href
                                                                 ? 'bg-purple-700 text-white'
-                                                                : 'text-white hover:bg-purple-500 hover:bg-opacity-75',
+                                                                : 'text-white sm:text-center hover:bg-purple-500 hover:bg-opacity-75',
                                                             'px-3 py-2 rounded-md text-sm font-medium'
                                                         )}
                                                         aria-current={item.current ? 'page' : undefined}

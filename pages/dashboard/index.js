@@ -70,33 +70,11 @@ export const getServerSideProps = async (context) => {
   // Get github login
   const session = await getSession(context)
   if (session) {
-    var login = session.profile.login;
-
-    if (login) {
-      const res = await fetch('https://api.github.com/users/' + login + '/repos');
-      const reposList = await res.json();
-
-      return {
-        props: {
-          session,
-          reposList
-        },
-      };
-    }
-  }
-  // Redirect the user if not logged to github
-  else {
-
-    // note: we should trigger an alert if the user isn't connect
     return {
-      redirect: { destination: '/login', permanent: false }
-    }
+      props: {
+        session,
+      },
+    };
   }
 
-  
-  return {
-    props: {
-      session
-    },
-  };
 };

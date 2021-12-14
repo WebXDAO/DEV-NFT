@@ -82,19 +82,18 @@ function MarketplaceList() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
                         {
                             nfts.map((nft, i) => (
-                                <div key={i} className="border shadow rounded-xl overflow-hidden">
+                                <div key={i} className="border shadow-md rounded-xl overflow-hidden">
                                     {/* <Image src={nft.image} layout="fill"/> */}
                                     
                                     {/*temp card testing*/}
                                                                         {/*<!-- component -->*/}
                                     {/*<!-- This is an example component -->*/}
                                     <div class=" w-full h-full flex justify-center items-center">
-                                        <div class="relative flex justify-center rounded-xl">
+                                        <div class="relative flex flex-col justify-center rounded-xl w-full">
                                             <div class="top-0 left-0 mt-3 px-1 rounded-lg absolute z-30 bg-green-500 text-gray-100 text-xs md:text-sm font-medium md:block">{nft.price} MATIC</div>
-                                            <div class="w-65 pb-2 bg-white rounded-xl shadow-xl z-10">
                                                 <div class="relative">
                                                 {/*<!-- :src="image.largeImageURL"     -->*/}
-                                                    <img src={nft.image} class="object-cover rounded-t-xl" alt=""/>
+                                                    <img src={nft.image} class="object-contain hover:object-scale-down rounded-t-xl w-full" alt=""/>
                                                 </div>
                                                 <div class="px-2 py-1">
                                                     {/*<!-- Product Title -->*/}
@@ -103,7 +102,6 @@ function MarketplaceList() {
                                                     {/*<!-- Tombol pesan -->*/}
                                                     <button class="font-bold inset-x-0 bottom-0 flex justify-center bg-purple-600 hover:bg-white text-sm md:text-base border hover:border-2 hover:border-purple-800 rounded-xl w-14 md:w-16 p-1 text-gray-100 hover:text-blue-900" onClick={() => buyNft(nft)}>Buy</button>
                                                 </div>
-                                            </div>
                                         </div> 
                                     </div>
                                 </div>
