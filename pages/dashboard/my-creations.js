@@ -2,6 +2,9 @@ import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
+import {
+  getSession,
+} from 'next-auth/client';
 
 import {
   nftmarketaddress, nftaddress
@@ -114,4 +117,10 @@ export const getServerSideProps = async (context) => {
       redirect: { destination: '/dashboard', permanent: false }
     }
   }
+
+  return {
+    props: {
+      session
+    }
+  };
 };

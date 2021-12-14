@@ -7,7 +7,6 @@ import {
   getSession,
   signIn,
   signOut,
-  useSession
 } from 'next-auth/client';
 import {
   LoginIcon
@@ -62,6 +61,8 @@ export const getServerSideProps = async (context) => {
       const res = await fetch('https://api.github.com/users/' + login + '/repos');
       const reposList = await res.json();
 
+      const res2 = await fetch()
+
       // uncomment to see the api response
       // console.log(reposList)
 
@@ -73,13 +74,13 @@ export const getServerSideProps = async (context) => {
         },
       };
     }
-    // Redirect the user if not logged to github
-    else {
-
-      // note: we should trigger an alert if the user isn't connect
-      return {
-        redirect: { destination: '/dashboard', permanent: false }
-      }
+  }
+  // Redirect the user if not logged to github
+  else {
+    
+    // note: we should trigger an alert if the user isn't connect
+    return {
+      redirect: { destination: '/dashboard', permanent: false }
     }
   }
 
