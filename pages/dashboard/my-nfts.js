@@ -87,14 +87,6 @@ export const getServerSideProps = async (context) => {
   if (session) {
     // Do something...
   }
-  // Redirect the user if not logged to github
-  else {
-
-    // note: we should trigger an alert if the user isn't connect
-    return {
-      redirect: { destination: '/dashboard', permanent: false }
-    }
-  }
 
   return {
     props: {
