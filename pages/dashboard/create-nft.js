@@ -61,8 +61,6 @@ export const getServerSideProps = async (context) => {
       const res = await fetch('https://api.github.com/users/' + login + '/repos');
       const reposList = await res.json();
 
-      const res2 = await fetch()
-
       // uncomment to see the api response
       // console.log(reposList)
 
