@@ -113,6 +113,7 @@ function SvgPreview({ props, githubUsername, selectedRepos, description, setShar
 
     
     const time = Date.now();
+    const url = "https://opengraph.githubassets.com/1/"
     return (
         <>
             <svg
@@ -178,30 +179,13 @@ function SvgPreview({ props, githubUsername, selectedRepos, description, setShar
               </text>
             </g>
             <g>
-              <text
-                xmlSpace="preserve"
-                fontFamily="Lato"
-                fontSize={12}
-                fontWeight={400}
-                style={{
-                  stroke: "none",
-                  strokeWidth: 1,
-                  strokeDasharray: "none",
-                  strokeLinecap: "butt",
-                  strokeDashoffset: 0,
-                  strokeLinejoin: "miter",
-                  strokeMiterlimit: 4,
-                  fill: "#58a6ff",
-                  fillRule: "nonzero",
-                  opacity: 1,
-                  whiteSpace: "pre",
-                }}
-                transform="translate(150 195.68)"
-              >
-                <tspan x={-111.62} y={3.77}>
-                  {description}
-                </tspan>
-              </text>
+              <image
+                href={url+githubUsername}
+                x={15}
+                y={165}
+                height={150}
+                width={300}
+              />
             </g>
             <g>
               <path

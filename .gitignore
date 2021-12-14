@@ -137,3 +137,5 @@ package-lock.json
 
 #Hardhat files
 
+#env files
+.env.local
