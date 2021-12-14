@@ -18,9 +18,11 @@ export default function MyCreation() {
   const [nfts, setNfts] = useState([])
   const [sold, setSold] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
+
   useEffect(() => {
     loadNFTs()
   }, [])
+  
   async function loadNFTs() {
     const web3Modal = new Web3Modal({
       network: "mainnet",
@@ -108,14 +110,6 @@ export const getServerSideProps = async (context) => {
   const session = await getSession(context)
   if (session) {
     // Do something...
-  }
-  // Redirect the user if not logged to github
-  else {
-
-    // note: we should trigger an alert if the user isn't connect
-    return {
-      redirect: { destination: '/dashboard', permanent: false }
-    }
   }
 
   return {
