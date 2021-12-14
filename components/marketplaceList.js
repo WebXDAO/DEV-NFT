@@ -88,9 +88,9 @@ function MarketplaceList() {
                                     {/*temp card testing*/}
                                                                         {/*<!-- component -->*/}
                                     {/*<!-- This is an example component -->*/}
-                                    <div className=" w-full h-full flex justify-center items-center">
+                                    <div className="w-full h-full flex justify-center items-center">
                                         <div className="relative flex flex-col justify-center rounded-xl w-full">
-                                            <div className="top-0 left-0 mt-3 px-1 rounded-lg absolute z-30 bg-green-500 text-gray-100 text-xs md:text-sm font-medium md:block">{nft.price} MATIC</div>
+                                            <div className="top-0 left-0 mt-5 px-1 mx-5 rounded-lg absolute z-30 bg-green-500 text-gray-100 text-xs md:text-sm font-medium md:block">{nft.price} MATIC</div>
                                                 <div className="relative m-4">
                                                 {/*<!-- :src="image.largeImageURL"     -->*/}
                                                     <img src={nft.image} className="object-contain rounded-t-xl w-full" alt=""/>
