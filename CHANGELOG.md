@@ -1,3 +1,12 @@
+## [0.2.3](https://github.com/web3community/DEV-NFT/compare/v0.2.2...v0.2.3) (2021-12-15)
+
+
+### Bug Fixes
+
+* missing items sold cards ([d934fd8](https://github.com/web3community/DEV-NFT/commit/d934fd8786d2a7bc593fefc06ff650dc88751eb6))
+
+
+
 ## [0.2.2](https://github.com/web3community/DEV-NFT/compare/v0.2.1...v0.2.2) (2021-12-14)
 
 
@@ -34,15 +43,6 @@
 ### Bug Fixes
 
 * MATICsymbol ([#25](https://github.com/web3community/DEV-NFT/issues/25)) ([3131fdf](https://github.com/web3community/DEV-NFT/commit/3131fdf9a0ab251d52324bd56ea8fb176a4533c1))
-
-
-
-# [0.1.0](https://github.com/web3community/DEV-NFT/compare/v1.0.4...v0.1.0) (2021-12-11)
-
-
-### Bug Fixes
-
-* url redirection  ([2035a20](https://github.com/web3community/DEV-NFT/commit/2035a2063d46ac49f60083dd94188bf4133786ce))
 
 
 
