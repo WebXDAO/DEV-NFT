@@ -102,9 +102,6 @@ function Login({ session }) {
         router.push('/dashboard');
     }
 
-    console.log("Current Github session: ", session);
-
-
     return (
         <>
             <div className="min-h-screen h-full flex">

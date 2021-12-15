@@ -16,7 +16,7 @@ import {
 import NFT from '../../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../../artifacts/contracts/Market.sol/NFTMarket.json'
 import Layout from '../../layout/Layout'
-import MarketplaceList from '../../components/marketplaceList'
+import MarketplaceList from '../../components/MarketplaceList'
 
 let rpcEndpoint = "https://matic-mumbai.chainstacklabs.com"
 
