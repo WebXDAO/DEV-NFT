@@ -113,7 +113,7 @@ const home = ({ session }) => {
                   <span className="sr-only">DevNFT</span>
                   <span className="text-2xl font-bold text-purple-600">DevNFT </span>
                   <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">
-                    Beta
+                    Mumbai Testnet
                   </span>
 
                   {/* If we need a logo, put it here !
