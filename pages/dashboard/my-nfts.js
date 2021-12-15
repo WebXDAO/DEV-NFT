@@ -49,6 +49,8 @@ export default function MyAssets() {
         seller: i.seller,
         owner: i.owner,
         image: meta.data.image,
+        description: meta.data.description,
+        name: meta.data.name
       }
       return item
     }))
@@ -70,14 +72,28 @@ export default function MyAssets() {
                 <div className="p-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
                         {
-                            // NFT card UI code
+                            // NFT card UI
                             nfts.map((nft, i) => (
-                                <div key={i} className="border shadow rounded-xl overflow-hidden">
-                                    <img src={nft.image} className="rounded" />
-                                    <div className="p-4 bg-black">
-                                        <p className="text-2xl font-bold text-white">Price - {nft.price} MATIC</p>
-                                    </div>
-                                </div>
+                              <div key={i} className="border shadow-md rounded-xl overflow-hidden">
+                                  <div className="w-full h-full flex justify-center items-center">
+                                      <div className="relative flex flex-col justify-center rounded-xl w-full">
+                                          <div className="top-0 left-0 mt-5 px-1 mx-5 rounded-lg absolute z-30 bg-green-500 text-gray-100 text-xs md:text-sm font-medium md:block">{nft.price} MATIC</div>
+                                              <div className="relative m-4">
+
+                                                  {/*<!-- :src="image.largeImageURL"     -->*/}
+                                                  <img src={nft.image} className="object-contain rounded-t-xl w-full" alt=""/>
+                                              </div>
+                                              <div className="px-2 py-1 ">
+
+                                                  {/*<!-- Product Title -->*/}
+                                                  <div className="mx-auto px-2 py-2">
+                                                      <div className="text-sm md:text-base font-bold pr-2">{nft.name}</div>
+                                                      <p  className="h-16 pb-1 md:pb-2 text-xs md:text-sm text-gray-500">{nft.description}</p>
+                                                  </div>
+                                              </div>
+                                      </div> 
+                                  </div>
+                              </div>
                             ))
                         }
                     </div>
