@@ -15,3 +15,9 @@ To use DevNFT you need to setup mumbai testnet network on metamask.
 
 To mint NFT you need test matic 
 - Take them from : https://faucet.polygon.technology/
+
+Tools we are using
+IPFS infura node
+Contract templates by [Nader Dabit](https://github.com/dabit3)
+Nextjs for building Client
+Hardhat for abi generation
