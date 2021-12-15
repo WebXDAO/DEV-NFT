@@ -6,8 +6,6 @@ import { CheckIcon } from '@heroicons/react/outline'
 export default function ReposModal({ isOpen, username, reposname }) {
   const [open, setOpen] = useState(isOpen)
 
-  console.log('reposModal open:', open, isOpen)
-
   return (
       <>
     <Transition.Root show={isOpen} as={Fragment}>

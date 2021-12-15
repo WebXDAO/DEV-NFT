@@ -57,8 +57,6 @@ function ReposList({ reposList }) {
 
     async function createMarket() {
         const { name, description, price } = githubContent
-        console.log("createMarket() test:", name, description, price);
-
 
         if (!name || !description || !price || !fileUrl) return
         
@@ -67,7 +65,10 @@ function ReposList({ reposList }) {
         const data = JSON.stringify({
         name, description, image: fileUrl
         })
-        console.log(data)
+
+        // CONTROL:
+        // console.log(data)
+
         try {
             const added = await client.add(data)
             const url = `https://ipfs.infura.io/ipfs/${added.path}`

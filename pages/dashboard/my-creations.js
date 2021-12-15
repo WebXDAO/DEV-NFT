@@ -40,7 +40,7 @@ export default function MyCreation() {
       const tokenUri = await tokenContract.tokenURI(i.tokenId)
       const meta = await axios.get(tokenUri)
       let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
-      console.log(meta)
+
       let item = {
         price,
         tokenId: i.tokenId.toNumber(),
