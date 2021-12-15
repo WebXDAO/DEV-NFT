@@ -56,8 +56,15 @@ export default function MyCreation() {
     setNfts(items)
     setLoadingState('loaded') 
   }
-  console.log(sold)
-  // if (loadingState === 'loaded' && !nfts.length) return (<h1 className="py-10 px-20 text-3xl">No assets created</h1>)
+
+  if (loadingState === 'loaded' && !nfts.length) {
+    return (
+      <Layout headerName="My NFTs">
+        <h1 className="py-10 px-20 text-3xl">No assets owned</h1>
+      </Layout>
+    )
+  }
+  
   return (
     <Layout headerName="My creations">
     <div>
