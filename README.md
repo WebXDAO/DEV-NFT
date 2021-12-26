@@ -1,6 +1,6 @@
 # DEV-NFT
 
-This project aims for [Buidlit](https://buidlit.polygon.technology/)
+This project aims for [Buidlit](https://buidlit.polygon.technology/) & [Dev Dapp Starter Grant](https://www.notion.so/Welcome-to-DEV-DAPP-STARTER-GRANTS-5cb95252f18540258111581ea54d8808)
 
 We are currently on mumbai testnet. 
 To use DevNFT you need to setup mumbai testnet network on metamask. 
