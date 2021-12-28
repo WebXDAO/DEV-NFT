@@ -4,7 +4,7 @@ This project aims for [Buidl it](https://buidlit.polygon.technology/) & [Dev Dap
 
 # Hackathon results
 
-This project win 2 prizes for [Buidl it](https://devfolio.co/submissions/devnft-210b) hackathon 🏆 :
+This project won 2 prizes for [Buidl it](https://devfolio.co/submissions/devnft-210b) hackathon 🏆 :
 
 <img width="1259" alt="" src="https://user-images.githubusercontent.com/50140834/147484853-81c5bae0-8a8a-40d8-bdcb-f50b795f59d1.png">
 
