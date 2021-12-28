@@ -1,6 +1,16 @@
 # DEV-NFT
 
-This project aims for [Buidlit](https://buidlit.polygon.technology/) & [Dev Dapp Starter Grant](https://www.notion.so/Welcome-to-DEV-DAPP-STARTER-GRANTS-5cb95252f18540258111581ea54d8808)
+This project aims for [Buidl it](https://buidlit.polygon.technology/) & [Dev Dapp Starter Grant](https://www.notion.so/Welcome-to-DEV-DAPP-STARTER-GRANTS-5cb95252f18540258111581ea54d8808)
+
+# Hackathon results
+
+This project won 2 prizes for [Buidl it](https://devfolio.co/submissions/devnft-210b) hackathon 🏆 :
+
+<img width="1259" alt="" src="https://user-images.githubusercontent.com/50140834/147484853-81c5bae0-8a8a-40d8-bdcb-f50b795f59d1.png">
+
+Check the project submission [here](https://devfolio.co/submissions/devnft-210b)!
+
+# Network
 
 We are currently on mumbai testnet. 
 To use DevNFT you need to setup mumbai testnet network on metamask. 
