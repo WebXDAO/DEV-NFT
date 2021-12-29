@@ -221,7 +221,7 @@ const home = ({ session }) => {
                 </div>
                 <div className="mt-6">
                   <nav className="grid gap-y-6">
-                    {mobileMenu.map((item)=>(
+                    {mobileMenu.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
