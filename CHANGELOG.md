@@ -1,3 +1,12 @@
+## [0.2.4](https://github.com/web3community/DEV-NFT/compare/v0.2.3...v0.2.4) (2021-12-30)
+
+
+### Bug Fixes
+
+* Login Session issue in Mobile View ([#55](https://github.com/web3community/DEV-NFT/issues/55)) ([bad76c7](https://github.com/web3community/DEV-NFT/commit/bad76c723623731e0e139f68ff01f182d0556589))
+
+
+
 ## [0.2.3](https://github.com/web3community/DEV-NFT/compare/v0.2.2...v0.2.3) (2021-12-15)
 
 
@@ -34,15 +43,6 @@
 ### Features
 
 * new svg ([a7b1977](https://github.com/web3community/DEV-NFT/commit/a7b197711860d05e98ea62f84207fb3f385c6c22))
-
-
-
-## [0.1.1](https://github.com/web3community/DEV-NFT/compare/v0.1.0...v0.1.1) (2021-12-12)
-
-
-### Bug Fixes
-
-* MATICsymbol ([#25](https://github.com/web3community/DEV-NFT/issues/25)) ([3131fdf](https://github.com/web3community/DEV-NFT/commit/3131fdf9a0ab251d52324bd56ea8fb176a4533c1))
 
 
 
