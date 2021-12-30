@@ -45,7 +45,6 @@ const home = ({ session }) => {
 
   // Mobile menu data
   const mobileMenu = [
-    { name: 'Login', icon: LoginIcon, href: '/login'},
     { name: 'Marketplace', icon: PlayIcon, href:'/dashboard' }
   ]
 
@@ -221,7 +220,7 @@ const home = ({ session }) => {
                   </div>
                 </div>
                 <div className="mt-6">
-                  <nav className="grid gap-y-8">
+                  <nav className="grid gap-y-6">
                     {mobileMenu.map((item) => (
                       <a
                         key={item.name}
@@ -232,6 +231,32 @@ const home = ({ session }) => {
                         <span className="ml-3 text-base font-medium text-gray-900">{item.name}</span>
                       </a>
                     ))}
+
+                    <div className="flex py-1 justify-between">
+                      {/* Login button */}
+                      {!session?(
+                        <a
+                          href="/login"
+                          className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                        >
+                          <LoginIcon className="flex-shrink-0 h-6 w-6 text-purple-600" aria-hidden="true" />
+                          <span className="ml-3 text-base font-medium text-gray-900">Login</span>
+                        </a>
+                        ):(
+                        <>
+                        {/* Profile and Logout button */}
+                          <div className="flex items-center">
+                              <img className="h-8 w-8 mx-2 rounded-full" src={session.picture} alt="" />
+                              <div className="text-base font-medium">{session.name}</div>
+                          </div>
+                          <button
+                              type="button"
+                              className="p-1"
+                          >
+                              <LogoutIcon onClick={() => signOut()} className="h-6 w-6" aria-hidden="true" />
+                          </button>
+                      </>)}              
+                    </div>
                   </nav>
                 </div>
               </div>
