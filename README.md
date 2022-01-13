@@ -1,4 +1,4 @@
-# DEV-NFT
+# DEV-NFT [![Stake to support us](https://badge.devprotocol.xyz/0x803854e0676cd5892f6100eb452551D22e9c38ec/descriptive)](https://stakes.social/0x803854e0676cd5892f6100eb452551D22e9c38ec)
 
 This project aims for [Buidl it](https://buidlit.polygon.technology/) & [Dev Dapp Starter Grant](https://www.notion.so/Welcome-to-DEV-DAPP-STARTER-GRANTS-5cb95252f18540258111581ea54d8808)
 
