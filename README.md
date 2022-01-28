@@ -31,3 +31,30 @@ Tools we are using
 - Contract templates by [Nader Dabit](https://github.com/dabit3)
 - Nextjs for building Client
 - Hardhat for abi generation
+
+# Environment Variables
+
+For local development, developers need to create environment variables in .env file.
+
+If you are not familiar with environment variables, here is a great [article](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786) explaining it.
+
+1. To define permanent environment variables in this project, create a file called .env in the root of your project with following variables:
+
+```GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+NEXTAUTH_URL=http://localhost:3000```
+
+2. You need to obtain your own Github Client ID and Secret Key used for OAuth authentication which would also be assigned to 'GITHUB_CLIENT_ID' and 'GITHUB_CLIENT_SECRET' variable above. If you want to understand what client ID and Secret Key, as well as OAuth authentication, please read this [document](https://docs.github.com/en/rest/guides/basics-of-authentication).
+
+  a. You need to first register your app to obtain your Client ID and Secret Key. click [here](https://github.com/settings/applications/new) to begin.
+  b. Fill in the information as shown below and click "Register application" button to proceed.
+  
+  ![Register Application example](https://user-images.githubusercontent.com/38476995/151474184-434e683f-3a90-454e-95c2-a5d091c115fd.png)
+
+  c. There you have it. Your client ID and client secret keys come from your application's configuration page. You should never, ever store these values in GitHub--or any other public place, for that matter. We recommend storing them as environment variables--which is exactly what we've done here.
+  
+  <img width="464" alt="Client ID and Secret Key example" src="https://user-images.githubusercontent.com/38476995/151474639-87696a9a-040e-4b81-bfbc-53e62d2b1565.png">
+
+2. Double check .gitignore file and make sure .env is listed as shown below.
+
+<img width="386" alt="gitignore file example" src="https://user-images.githubusercontent.com/38476995/151290850-9cfe4b8d-d2db-4a90-a5e8-5f5e2f910706.png">
