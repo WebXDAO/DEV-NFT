@@ -32,7 +32,7 @@ Tools we are using
 - Nextjs for building Client
 - Hardhat for abi generation
 
-# Environment Variables
+## Environment Variables
 
 For local development, developers need to create environment variables in .env file. If you are not familiar with environment variables, here is a great [article](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786) explaining it.
 
@@ -49,12 +49,12 @@ NEXTAUTH_URL=http://localhost:3000
   - You need to first register your app to obtain your Client ID and Secret Key. Click [here](https://github.com/settings/applications/new) to begin.
   - Fill in the information as shown below and click "Register application" button to proceed.
    
-<img width="985" alt="Register Application example" src="https://user-images.githubusercontent.com/38476995/151486332-b9223452-91ef-4b45-b96f-686db5015361.png">
+![image](https://user-images.githubusercontent.com/38476995/151486332-b9223452-91ef-4b45-b96f-686db5015361.png)
  
    - There you have it. Your client ID and client secret keys come from your application's configuration page. You should never, ever store these values in GitHub or any other public place, for that matter. We recommend storing them as environment variables which is exactly what we've done here.
   
-<img width="788" alt="Client ID and Secret Key example" src="https://user-images.githubusercontent.com/38476995/151487977-44958f32-bfdb-4efe-945a-0a428f6d5dcb.png">
+![image](https://user-images.githubusercontent.com/38476995/151487977-44958f32-bfdb-4efe-945a-0a428f6d5dcb.png)
 
 3. Double check .gitignore file and make sure .env is listed as shown below.
 
-     <img width="386" alt="gitignore file example" src="https://user-images.githubusercontent.com/38476995/151290850-9cfe4b8d-d2db-4a90-a5e8-5f5e2f910706.png">
+     ![image](https://user-images.githubusercontent.com/38476995/151290850-9cfe4b8d-d2db-4a90-a5e8-5f5e2f910706.png)
