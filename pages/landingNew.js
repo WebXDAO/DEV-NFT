@@ -1,5 +1,5 @@
 import Navbar from "../components/nav/Navbar";
-
+import Hero from '../components/Hero'
 const landingNew = () => {
   return (
     <div className="bg-white">
@@ -8,7 +8,7 @@ const landingNew = () => {
 
         {/* Main content: Hero and others components inside <main></main> */}
         <main>
-
+        <Hero />
         </main>
 
         {/* Footer <footer></footer> */}
