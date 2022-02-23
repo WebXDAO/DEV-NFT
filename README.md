@@ -2,7 +2,7 @@
 
 This project aims for [Buidl it](https://buidlit.polygon.technology/) & [Dev Dapp Starter Grant](https://www.notion.so/Welcome-to-DEV-DAPP-STARTER-GRANTS-5cb95252f18540258111581ea54d8808)
 
-# Hackathon results
+## Hackathon results
 
 This project won 2 prizes for [Buidl it](https://devfolio.co/submissions/devnft-210b) hackathon 🏆 :
 
@@ -10,7 +10,7 @@ This project won 2 prizes for [Buidl it](https://devfolio.co/submissions/devnft-
 
 Check the project submission [here](https://devfolio.co/submissions/devnft-210b)!
 
-# Network
+## Network
 
 We are currently on mumbai testnet. 
 To use DevNFT you need to setup mumbai testnet network on metamask. 
@@ -18,15 +18,15 @@ To use DevNFT you need to setup mumbai testnet network on metamask.
 - NetworkName: 	Mumbai
 - chainId:	80001
 - Gas Token:	MATIC Token
-- Rpc url: https://matic-mumbai.chainstacklabs.com
-- blockscan: https://mumbai.polygonscan.com/
+- [RPC url](https://matic-mumbai.chainstacklabs.com)
+- [Blockscan](https://mumbai.polygonscan.com/)
 
 ![image](https://user-images.githubusercontent.com/57281769/145784891-9902e059-59e8-442f-8ce1-ed7af6108784.png)
 
-To mint NFT you need test matic 
-- Take them from : https://faucet.polygon.technology/
+### To mint NFT you need test matic 
+- Take them from this [faucet](https://faucet.polygon.technology/)
 
-Tools we are using
+### Tools we are using
 - IPFS infura node
 - Contract templates by [Nader Dabit](https://github.com/dabit3)
 - Nextjs for building Client
@@ -34,9 +34,10 @@ Tools we are using
 
 ## Environment Variables
 <!-- markdownlint-disable-next-line -->
-For local development, developers need to create environment variables in .env file. If you are not familiar with environment variables, here is a great [article](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786) explaining it.
+- For local development, developers need to create environment variables in `.env` file.
+- Elucidation for the above terms -> [article](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786)
 <!-- markdownlint-disable-next-line -->
-- To define permanent environment variables in this project, create a file called .env in the root of your project with following variables:
+- To define permanent environment variables in this project, create a file called `.env` in the root of your project with following variables:
 
 ```bash
 GITHUB_CLIENT_ID=
@@ -44,14 +45,15 @@ GITHUB_CLIENT_SECRET=
 NEXTAUTH_URL=http://localhost:3000
 ```
 <!-- markdownlint-disable-next-line -->
-- You need to obtain your own Github Client ID and Secret Key for OAuth authentication for the app which would also be assigned to 'GITHUB_CLIENT_ID' and 'GITHUB_CLIENT_SECRET' variable above. If you want to understand further about client ID and Secret Key, as well as OAuth authentication, please read this [document](https://docs.github.com/en/rest/guides/basics-of-authentication).
-  - You need to first register your app to obtain your Client ID and Secret Key. Click [here](https://github.com/settings/applications/new) to begin.
-  - Fill in the information as shown below and click "Register application" button to proceed.
+- You need to obtain your own Github Client ID and Secret Key for OAuth authentication for the app which would also be assigned to `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` variable above. 
+- Elucidation for the terms above -> [document](https://docs.github.com/en/rest/guides/basics-of-authentication).
+  - Register your app to obtain your Client ID and Secret Key. Click [here](https://github.com/settings/applications/new) to begin.
+  - Fill in the information as shown below and click `Register application` button to proceed. </br>
 ![image](https://user-images.githubusercontent.com/38476995/151486332-b9223452-91ef-4b45-b96f-686db5015361.png)
-  - There you have it. Your client ID and client secret keys come from your application's configuration page. You should never, ever store these values in GitHub or any other public place, for that matter. We recommend storing them as environment variables which is exactly what we've done here.
+  - Your Client ID and Client Secret Keys come from your application's configuration page. Rather than storing these values in GitHub or any other public space, we recommend storing them as environment variables.
   
 ![image](https://user-images.githubusercontent.com/38476995/151487977-44958f32-bfdb-4efe-945a-0a428f6d5dcb.png)
 
-- Double check .gitignore file and make sure .env is listed as shown below.
+- Double check `.gitignore` file and make sure `.env` is listed as shown below.
 
 ![image](https://user-images.githubusercontent.com/38476995/151290850-9cfe4b8d-d2db-4a90-a5e8-5f5e2f910706.png)
