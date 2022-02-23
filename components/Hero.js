@@ -1,66 +1,50 @@
-import React from 'react'
-
-const style = {
-  wrapper: `relative`,
-  container: `before:content-[''] before:bg-red-500 before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[#FFFFFF] before:bg-cover before:bg-center before:opacity-30 before:blur`,
-  contentWrapper: `flex h-screen relative justify-center flex-wrap items-center`,
-  copyContainer: `w-1/2 mr-5`,
-  title: `relative text-[#000000] text-[46px] font-semibold`,
-  description: `text-[#8a939b] container-[400px] text-2xl mt-[0.8rem] mb-[2.5rem]`,
-  ctaContainer: `flex`,
-  accentedButton: ` relative text-lg font-semibold px-12 py-4 bg-[#3D00B7] rounded-lg mr-5 text-white hover:bg-[#7E56CE] cursor-pointer rounded-[56px]`,
-  button: ` relative text-lg font-semibold px-12 py-4 bg-[#FFFFFF] rounded-lg mr-5 text-[#3D00B7] hover:bg-[#D2C9E4] cursor-pointer border border-[#3D00B7] rounded-[56px]`,
-  cardContainer: `rounded-[3rem]`,
-  infoContainer: `h-20 bg-[#313338] p-4 rounded-b-lg flex items-center text-white `,
-  author: `flex flex-col justify-center ml-4`,
-  name: ``,
-  infoIcon: `flex justify-end items-center flex-1 text-[#8a939b] text-3xl font-bold`,
-}
-
 const Hero = () => {
   return (
-    <div className={style.wrapper}>
-      <div className={style.container}>
-        <div className={style.contentWrapper}>
-          <div className={style.copyContainer}>
-            <div className={style.title}>
-              Worlds first NFT marketplace of Open Source Repositories
-            </div>
-            <div className={style.description}>
-              Digital marketplace for non-fungible tokens (NFTs). Buy, Sell, and discover exclusive digital assets.
-            </div>
-            <div className={style.ctaContainer}>
-              <button className={style.accentedButton}>Explore</button>
-              <button className={style.button}>Create</button>
-            </div>
+    <div className="my-24 px-8 lg:px-4">
+      <div className="grid grid-cols-12 gap-8 lg:gap-0">
+        <div className="col-span-12 lg:col-span-6 lg:my-20 lg:ml-20 flex flex-col text-center lg:text-left">
+          <div className="text-[#000000] text-3xl lg:text-[46px] lg:leading-tight font-semibold">
+            Worlds first NFT marketplace of Open Source Repositories
           </div>
-          <div className={style.cardContainer}>
+          <div className="text-[#8a939b] container-[400px] lg:text-2xl mt-[0.8rem] lg:mb-[2.5rem]">
+            Digital marketplace for non-fungible tokens (NFTs). Buy, Sell, and
+            discover exclusive digital assets.
+          </div>
+          <div className="flex mx-auto lg:mx-0 my-4 space-x-4">
+            <button className="relative lg:text-lg font-semibold px-12 py-4 bg-[#3D00B7] rounded-lg text-white hover:bg-[#7E56CE] cursor-pointer lg:rounded-[56px]">
+              Explore
+            </button>
+            <button className="relative text-lg font-semibold px-12 py-4 bg-[#FFFFFF] rounded-lg text-[#3D00B7] hover:bg-[#D2C9E4] cursor-pointer border border-[#3D00B7] lg:rounded-[56px]">
+              Create
+            </button>
+          </div>
+        </div>
+        <div className="col-span-12 lg:col-span-6 rounded-[3rem] mx-auto h-2/3">
+          <img
+            className="rounded-t-lg"
+            src="https://lh3.googleusercontent.com/ujepnqpnL0nDQIHsWxlCXzyw4pf01yjz1Jmb4kAQHumJAPrSEj0-e3ABMZlZ1HEpJoqwOcY_kgnuJGzfXbd2Tijri66GXUtfN2MXQA=s550"
+            alt=""
+          />
+          <div className="h-20 bg-[#313338] p-4 rounded-b-lg flex items-center text-white">
             <img
-              className="rounded-t-lg"
-              src="https://lh3.googleusercontent.com/ujepnqpnL0nDQIHsWxlCXzyw4pf01yjz1Jmb4kAQHumJAPrSEj0-e3ABMZlZ1HEpJoqwOcY_kgnuJGzfXbd2Tijri66GXUtfN2MXQA=s550"
+              className="h-[2.25rem] rounded-full"
+              src="https://iili.io/1MALwG.png"
               alt=""
             />
-            <div className={style.infoContainer}>
-              <img
-                className="h-[2.25rem] rounded-full"
-                src="https://iili.io/1MALwG.png"
-                alt=""
-              />
-              <div className={style.author}>
-                <div className={style.name}>Jolly</div>
-                <a
-                  className="text-[#1868b7]"
-                  href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/2324922113504035910649522729980423429926362207300810036887725141691069366277"
-                >
-                  hola-kanola
-                </a>
-              </div>
+            <div className="flex flex-col justify-center ml-4">
+              <div>Jolly</div>
+              <a
+                className="text-[#1868b7]"
+                href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/2324922113504035910649522729980423429926362207300810036887725141691069366277"
+              >
+                hola-kanola
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

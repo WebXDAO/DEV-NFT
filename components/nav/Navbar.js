@@ -47,7 +47,10 @@ const mobileMenuItems = [
 const Navbar = () => {
   return (
     // mb-10 to test shadow - bg-gray-800
-    <Disclosure as="nav" className=" bg-white shadow-md">
+    <Disclosure
+      as="nav"
+      className=" bg-white shadow-md fixed top-0 z-50 w-full"
+    >
       {({ open }) => (
         <>
           <div className="mx-auto px-2 sm:px-4 lg:px-8">
