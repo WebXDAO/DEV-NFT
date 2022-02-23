@@ -2,7 +2,7 @@
 
 🎉 **First of all, thanks for taking the time to contribute!** 🎉
 
-The following is a set of guidelines for contributing to this project. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
+The following is a set of guidelines for contributing to this project. These are mostly guidelines, not rules. Use your best judgement, and feel free to propose changes to this document in a pull request.
 
 ## 📜 Code of Conduct
 
@@ -12,7 +12,7 @@ This project and everyone participating in it is governed by a [Code of Conduct]
 
 ### 💣 Reporting Bugs
 
-This section guides you through submitting a bug report. Following these guidelines helps maintainers and the community understand your report 📝, reproduce the behavior 💻 💻, and find related reports. 🔎
+This section guides you through submitting a bug report. Following these guidelines helps maintainers and the community understand your report 📝, reproduce the behavior 💻, and find related reports. 🔎
 
 Since the new GitHub Issue forms we only suggest you to include most information possible. But you can also **Perform a [cursory search](issues)** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 
@@ -33,17 +33,17 @@ If it has, add a comment to the existing issue instead of opening a new one.
 
 Unsure where to begin contributing to this project? You can start by looking through these beginner-friendly issues:
 
-- [Beginner issues](good-first-issues) - issues that require require less work.
+- [Beginner issues](good-first-issues) - issues that require less work.
 - [Help wanted issues](help-wanted) - issues that are a bit more involved.
 
 ### 📣 Pull Requests
 
 The process described here has several goals:
 
-- Maintain the project's quality
-- Fix problems that are important to users
-- Engage the community in working toward the best possible!
-- Enable a sustainable system for maintainers to review contributions
+- Maintain the project's quality.
+- Fix problems that are important to users.
+- Engage the community in working toward the best possible outcome!
+- Enable a sustainable system for maintainers to review contributions.
 
 Please follow all instructions in [the template](https://github.com/web3community/DEV-NFT/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
 
@@ -64,8 +64,7 @@ Please follow all instructions in [the template](https://github.com/web3communit
 
 ## How to Contribute 🚀
 
-- Please create an [issue](issues) before creatin
-g a pull request.
+- Please create an [issue](issues) before creating a pull request.
 - Fork the repository and create a branch for any issue that you are working on.
 - Create a pull request which will be reviewed and suggestions would be provided.
 - Add Screenshots to help us know what changes you have done.
