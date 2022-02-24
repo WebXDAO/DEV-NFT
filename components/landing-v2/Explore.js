@@ -5,14 +5,14 @@ const Explore = () => {
     <div className="relative px-2">
       <div className="w-full lg:px-20 lg:mx-auto">
         <Image
-          className="scale-95 md:scale-y-75"
+          className="scale-95 md:scale-y-[60%]"
           layout="responsive"
           height={720}
           width={1080}
           src="/Group.png"
         />
       </div>
-      <div className="absolute bottom-10 md:top-[50%] lg:top-1/2 left-[10%] lg:left-[15%] space-y-2 md:space-y-4 text-white">
+      <div className="absolute top-[45%] sm:top-1/2 left-[10%] lg:left-[15%] space-y-2 md:space-y-4 text-white">
         <h1 className="text-xl md:text-3xl lg:text-4xl font-semibold">
           Be a part of the revolution
         </h1>
