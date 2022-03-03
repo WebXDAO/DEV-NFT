@@ -2,6 +2,7 @@ import Navbar from "../components/nav/Navbar";
 import Hero from "../components/Hero";
 import Footer from "../components/landing-v2/Footer";
 import Started from "../components/landing-v2/GetStarted";
+import Explore from "../components/landing-v2/Explore";
 const landingNew = () => {
   return (
     <div className="bg-white">
@@ -12,6 +13,7 @@ const landingNew = () => {
         <main>
           <Hero />
           <Started />
+          <Explore />
         </main>
         {/* Footer <footer></footer> */}
         <Footer></Footer>
