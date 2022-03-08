@@ -4,6 +4,7 @@ import Footer from "../components/landing-v2/Footer";
 import Started from "../components/landing-v2/GetStarted";
 import Explore from "../components/landing-v2/Explore";
 import OsMarketplace from "../components/landing-v2/OsMarketplace";
+
 const landingNew = () => {
   return (
     <div className="bg-white">
