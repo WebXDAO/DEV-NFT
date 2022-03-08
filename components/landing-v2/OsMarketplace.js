@@ -1,8 +1,46 @@
 import Image from "next/image";
 
+// Replace this with DevNFT Feeds
 const marketplaceMocked = [
   {
     collection: "Metaverse",
+    collection_img: "mocked/mock-astrochair.png",
+    price: "0.05",
+    likes: "372",
+    owner: "John Doe",
+    nft_id: "#25215252",
+    nft_img: "mocked/mock-astrochair.png",
+  },
+  {
+    collection: "Cryptobros",
+    collection_img: "mocked/mock-ppl.png",
+    price: "0.05",
+    likes: "372",
+    owner: "John Doe",
+    nft_id: "#25215258",
+    nft_img: "mocked/mock-ppl.png",
+  },
+  {
+    collection: "WebxArt",
+    collection_img: "mocked/mock-nft.png",
+    price: "0.05",
+    likes: "372",
+    owner: "John Doe",
+    nft_id: "#25215255",
+    nft_img: "mocked/mock-astropool.png",
+  },
+  {
+    collection: "Metaverse",
+    collection_img: "mocked/mock-nft.png",
+    price: "0.05",
+    likes: "372",
+    owner: "John Doe",
+    nft_id: "#25215253",
+    nft_img: "mocked/mock-hearth.png",
+  },
+  // ...
+  {
+    collection: "WebxArt",
     collection_img: "mocked/mock-nft.png",
     price: "0.05",
     likes: "372",
@@ -12,25 +50,25 @@ const marketplaceMocked = [
   },
   {
     collection: "Metaverse",
-    collection_img: "mocked/mock-nft.png",
+    collection_img: "mocked/mock-astropool.png",
     price: "0.05",
     likes: "372",
     owner: "John Doe",
     nft_id: "#25215258",
-    nft_img: "mocked/mock-ppl.png",
+    nft_img: "mocked/mock-astropool.png",
   },
   {
-    collection: "Metaverse",
-    collection_img: "mocked/mock-nft.png",
+    collection: "HearthBros",
+    collection_img: "mocked/mock-hearth.png",
     price: "0.05",
     likes: "372",
     owner: "John Doe",
     nft_id: "#25215255",
-    nft_img: "mocked/mock-ppl.png",
+    nft_img: "mocked/mock-hearth.png",
   },
   {
     collection: "Metaverse",
-    collection_img: "mocked/mock-nft.png",
+    collection_img: "mocked/mock-astrochair.png",
     price: "0.05",
     likes: "372",
     owner: "John Doe",
@@ -120,20 +158,27 @@ export default function OsMarketplace() {
                 </div>
               </div>
 
-              {/* LIKE = PRICE */}
-              <div className="flex gap-5 px-6 pb-4">
-                <div className="w-full text-center">
-                  <p>coeur</p>
+              {/* PRICE */}
+              <div className="flex gap-5 px-6 pb-4 justify-between text-gray-800">
+                <div className="font-medium">
+                  <p>Price</p>
                 </div>
-                <div className="flex items-end text-center">
-                  <Image className="mr-1" src="/polygon_network.png" alt="Polygon" width="30" height="30"/>
-                  <p className="">{nft.price}</p>
+
+                  
+                <div className="flex space-x-1 items-en">
+                  <span>
+                    <Image src="/polygon_network.png" height="15" width="15"/> 
+                  </span>
+                  <span className="text-md font-medium">
+                    {nft.price}
+                  </span>
                 </div>
+                  
               </div>
 
               {/* PURCHASE */}
               <div className="px-6 pb-4">
-                <div className="flex w-full  text-center">
+                <div className="flex w-full text-center">
                   <button
                     type="button"
                     className="w-full items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-purple-700 bg-purple-100 hover:bg-purple-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-devnft"
