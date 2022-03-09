@@ -22,7 +22,7 @@ export default function NavNetworkSwitcher( ) {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex justify-center w-full rounded-md px-4 py-2 bg-white text-sm text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-devnft">
-          <Image height={25} width={25} src="/polygon-network.png" aria-hidden="true" />
+          <Image height={25} width={25} src="/polygon_network.png" aria-hidden="true" />
           <span className="mx-2 font-medium">
 
           { currentNetwork.name }
