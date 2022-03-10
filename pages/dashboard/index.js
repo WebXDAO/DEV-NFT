@@ -25,6 +25,7 @@ if (process.env.NEXT_PUBLIC_WORKSPACE_URL) {
 }
 
 export default function Home({ session }) {
+  console.log("Home", session)
   const [nfts, setNfts] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
   useEffect(() => {
@@ -57,7 +58,7 @@ export default function Home({ session }) {
 
   if (loadingState === 'loaded' && !nfts.length) return (<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>)
   return (
-    <Layout headerName="DevNFT Marketplace">
+    <Layout headerName="DevNFT Marketplace" session={session}>
       <MarketplaceList />
     </Layout>
   )
@@ -82,5 +83,4 @@ export const getServerSideProps = async (context) => {
       session
     }
   }
-
 };

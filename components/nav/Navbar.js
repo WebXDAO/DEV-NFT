@@ -1,6 +1,6 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { SearchIcon, UserIcon } from "@heroicons/react/solid";
+import { LogoutIcon, SearchIcon, UserIcon } from "@heroicons/react/solid";
 import {
   BellIcon,
   MenuIcon,
@@ -10,6 +10,17 @@ import {
 } from "@heroicons/react/outline";
 import NavMenuList from "./NavMenuList";
 import NavNetworkSwitcher from "./NavNetworkSwitcher";
+import { ethers } from "ethers";
+import Link from "next/link";
+let Web3 = require('web3');
+import {
+  getSession,
+  signIn,
+  signOut,
+  useSession
+} from 'next-auth/client';
+import { useRouter } from "next/router";
+import { getEllipsisTxt } from "../../helpers/formatters";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -44,7 +55,44 @@ const mobileMenuItems = [
   { name: "Get Started", link: "/" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ session }) => {
+  console.log(session);
+  const router = useRouter();
+  const [address, setAddress] = useState([])
+  const goToLogin = () => {
+    router.push("/login")
+  }
+
+  // TODO: replace by redux-toolkit
+  useEffect(() => {
+    const checkConnection = async () => {
+
+      // Check if browser is running Metamask
+      let web3 = null;
+      if (window.ethereum) {
+        web3 = new Web3(window.ethereum);
+      } else if (window.web3) {
+        web3 = new Web3(window.web3.currentProvider);
+      }
+
+      // Check if User is already connected by retrieving the accounts
+      if (web3 === null) {
+        setHeroButton("Please Install Metamask Wallet");
+      }
+      if (web3) {
+        web3.eth.getAccounts().then(async (addr) => {
+          // Set User account into state
+          setAddress(addr);
+
+          if (addr.length > 0) {
+            console.log("Current Metamask wallet: ", addr);
+          }
+        });
+      }
+    };
+    checkConnection();
+  }, []);
+
   return (
     // mb-10 to test shadow - bg-gray-800
     <Disclosure
@@ -56,18 +104,22 @@ const Navbar = () => {
           <div className="mx-auto px-2 sm:px-4 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
               {/* Logo */}
-              <div className="flex items-center px-2 lg:px-0">
+              <div className="cursor-pointer flex items-center px-2 lg:px-0">
                 <div className="flex-shrink-0">
-                  <img
-                    className="block lg:hidden h-5 w-auto"
-                    src="DevNFT.png"
-                    alt="Workflow"
-                  />
-                  <img
-                    className="hidden lg:block h-5 w-auto"
-                    src="DevNFT.png"
-                    alt="Workflow"
-                  />
+                  <Link href="/">
+                    <img
+                      className="block lg:hidden h-5 w-auto"
+                      src="/DevNFT.png"
+                      alt="DevNFT"
+                      />
+                  </Link>
+                  <Link href="/">
+                    <img
+                      className="hidden lg:block h-5 w-auto"
+                      src="/DevNFT.png"
+                      alt="DevNFT"
+                    />
+                  </Link>
                 </div>
 
                 {/* Menu desktop */}
@@ -115,7 +167,7 @@ const Navbar = () => {
 
               {/* Mobile menu button */}
               <div className="flex lg:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:bg-gradient-to-r  hover:text-white hover:from-rose-400 hover:via-fuchsia-500 hover:to-indigo-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:bg-purple-700  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-devnft">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -144,27 +196,65 @@ const Navbar = () => {
                   </button>
 
                   {/* Web3 Wallet authentification */}
-                  <button
-                    type="button"
-                    className="truncate inline-flex items-center px-6 py-2.5 text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-devnft"
-                    onClick={() => {}}
-                  >
-                    Connect Wallet
-                  </button>
 
+                  {/* ------ Display if not connected ------ */}
+                  {!session && (
+                    <>
+                      <button
+                        type="button"
+                        className="truncate inline-flex items-center px-6 py-2.5 text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-devnft focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-devnft"
+                        onClick={goToLogin}
+                      >
+                        Connect Github
+                      </button>
+                    </>
+                  )}
+
+                  {address.length == 0 && (
+                    <>
+                      <button
+                        type="button"
+                        className="truncate inline-flex items-center px-6 py-2.5 text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-devnft focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-devnft"
+                        onClick={goToLogin}
+                      >
+                        Connect Wallet
+                      </button>
+                    </>
+                  )}
+
+                  {/* ------ Display if connected ------ */}
+                  {address.length > 0 && (
+                    <>
+                      &nbsp; 🦊 &nbsp;
+                      <span className="px-1 text-sm text-black font-bold">
+                    {getEllipsisTxt(address[0], 6)}
+                  </span>
+                    </>
+                  )}
+
+                  
                   {/* Profile dropdown + Web3 wallet authentification | todo: make component */}
-                  <Menu as="div" className="mx-6 relative flex-shrink-0">
-                    <div>
-                      <Menu.Button className=" rounded-full flex text-sm bg-white text-gray-400 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-devnft">
-                        <div
-                          type="button"
-                          className="rounded-full flex-shrink-0 bg-white p-1  before:rounded-full text-gray-400 hover:text-gray-200 "
-                        >
-                          <span className="sr-only">View notifications</span>
-                          <UserIcon className="h-6 w-6" aria-hidden="true" />
-                        </div>
-                      </Menu.Button>
-                    </div>
+                  {session && (
+
+                    <Menu as="div" className="mx-2 relative flex-shrink-0">
+                      <div>
+                        <Menu.Button className="rounded-full flex text-sm bg-white text-gray-400 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-devnft">
+                          <div
+                            type="button"
+                            className="rounded-full flex-shrink-0 bg-white p-1  before:rounded-full text-gray-400 hover:text-gray-200 "
+                          >
+                            <span className="sr-only">View notifications</span>
+                            <span className="ml-1 whitespace-nowrap inline-flex items-center justify-center px-2 py-2 text-sm font-medium text-black">
+                          <b>{session.name}</b>
+                          <img
+                            className="w-6 h-6 rounded-full mx-auto ml-2"
+                            src={session.picture}
+                            alt={session.name}
+                          />
+                        </span>
+                          </div>
+                        </Menu.Button>
+                      </div>
 
                     {/* DropdownMenu */}
                     <Transition
@@ -192,6 +282,20 @@ const Navbar = () => {
                         </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
+                            <Link href={`/collections/${address}`}> 
+                            <a
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              Your Collection
+                            </a>
+                            </Link>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
                             <a
                               href="#"
                               className={classNames(
@@ -207,6 +311,7 @@ const Navbar = () => {
                           {({ active }) => (
                             <a
                               href="#"
+                              onClick={() => signOut()}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
@@ -219,6 +324,8 @@ const Navbar = () => {
                       </Menu.Items>
                     </Transition>
                   </Menu>
+                  
+                  )}
                 </div>
               </div>
             </div>
