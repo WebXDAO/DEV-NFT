@@ -11,6 +11,10 @@
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@openzeppelin/contracts": "^4.3.3",
+
+    "@3rdweb/hooks": "^1.8.0",
+    "@3rdweb/sdk": "^1.36.11",
+
     "axios": "^0.24.0",
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.5.1",
@@ -22,7 +26,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "web3": "^1.6.1",
-    "web3modal": "^1.9.4"
+    "web3modal": "^1.9.5",
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.0.0-beta.11",

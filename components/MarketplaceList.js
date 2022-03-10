@@ -10,6 +10,7 @@ import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
 import {
     nftaddress, nftmarketaddress
 } from '../config'
+import NFTCards from './NFT/NFTCards';
 
 
 function MarketplaceList() {
@@ -75,11 +76,13 @@ function MarketplaceList() {
     if (loadingState === 'loaded' && !nfts.length) return (<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>)
     return (
         <>
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-20">
                 <div className="px-4" style={{ maxWidth: '1600px' }}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
                         {
                             nfts.map((nft, i) => (
+
+                                // <NFTCards props={nft} />
                                 <div key={i} className="border shadow-md rounded-xl overflow-hidden">
                                     {/* <Image src={nft.image} layout="fill"/> */}
                                     
@@ -104,9 +107,9 @@ function MarketplaceList() {
                                                     {/* <button class="font-bold inset-x-0 bottom-0 flex justify-center bg-purple-600 hover:bg-white text-sm md:text-base border hover:border-2 hover:border-purple-800 rounded-xl w-14 md:w-16 p-1 text-gray-100 hover:text-blue-900" onClick={() => buyNft(nft)}>Buy</button> */}
                                                     <span
                                                         onClick={() => buyNft(nft)}
-                                                        className="hover:cursor-pointer font-bold inset-x-0  flex items-center justify-center px-4 py-2 mb-2 mx-2 text-sm rounded-md text-white bg-purple-800 hover:bg-purple-700 md:py-2 md:text-sm md:px-10"
+                                                        className="hover:cursor-pointer font-bold inset-x-0  flex items-center justify-center px-4 py-2 mb-2 mx-2 text-sm rounded-md text-white bg-devnft hover:bg-purple-700 md:py-2 md:text-sm md:px-10"
                                                     >
-                                                        Buy
+                                                        Purchase
                                                     </span>
                                                 </div>
                                         </div> 

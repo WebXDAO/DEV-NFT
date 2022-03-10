@@ -2,24 +2,45 @@ import Link from "next/link";
 
 const GetStarted = () => {
   return (
-    <div className="bg-white w-full my-2">
-      <h1 className="text-center text-2xl font-semibold">GETTING STARTED</h1>
-      <div className="flex flex-wrap my-8">
-        <div className="w-full lg:w-2/3 p-4">
-          <LeftComponent />
-        </div>
-        <div className="w-full lg:w-1/3 text-center px-6 lg:-ml-20 lg:text-left py-8">
-          <RightComponent />
-        </div>
-      </div>
-    </div>
+    // <div className="bg-white w-full my-2">
+    //   <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+    //         Getting Started
+    //   </h2>
+    //   <div className="flex flex-wrap my-8">
+    //     <div className="w-full lg:w-2/3 p-4">
+    //       <PlayerComponent />
+    //     </div>
+    //     {/* <div className="w-full lg:w-1/3 text-center px-6 lg:-ml-20 lg:text-left py-8">
+    //       <RightComponent />
+    //     </div> */}
+    //   </div>
+    // </div>
+
+<div className="relative bg-white pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+<div className="absolute inset-0">
+  <div className="bg-white h-1/3 sm:h-2/3" />
+</div>
+<div className="relative max-w-7xl mx-auto">
+  <div className="text-left">
+    <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+      Getting Started
+    </h2>
+    <p className="mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
+      Mint your GitHub NFT 🔥
+    </p>
+  </div>
+  <div className="mt-12 max-w-lg mx-auto  gap-5 lg:max-w-none">
+    {/* <PlayerComponent /> */}
+  </div>
+</div>
+</div>
   );
 };
 export default GetStarted;
 
-const LeftComponent = () => {
+const PlayerComponent = () => {
   return (
-    <div className="relative rounded-xl pt-8 p-2 mx-2 md:mx-20 lg:mx-40 bg-[#CC00FF] bg-opacity-5 shadow-xl flex flex-col justify-center items-center">
+    <div className="relative rounded-xl pt-8 p-2 mx-2 md:mx-20 lg:mx-40 bg-devnft bg-opacity-5 shadow-xl flex flex-col justify-center items-center">
       <div className="absolute top-2 left-4 flex space-x-1 w-full">
         <div className="bg-[#FC1F6F] rounded-full w-3 h-3" />
         <div className="bg-[#FFCC18] rounded-full w-3 h-3" />
