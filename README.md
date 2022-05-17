@@ -1,5 +1,11 @@
 # DEV-NFT [![Stake to support us](https://badge.devprotocol.xyz/0x803854e0676cd5892f6100eb452551D22e9c38ec/descriptive)](https://stakes.social/0x803854e0676cd5892f6100eb452551D22e9c38ec)
 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50140834/168823877-14b29b62-1847-463a-af28-6ebd099435b5.png" alt="animated" />
+
+</p>
+
 This project aims for [Buidl it](https://buidlit.polygon.technology/) & [Dev Dapp Starter Grant](https://www.notion.so/Welcome-to-DEV-DAPP-STARTER-GRANTS-5cb95252f18540258111581ea54d8808)
 
 # Hackathon results
