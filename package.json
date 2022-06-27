@@ -16,7 +16,7 @@
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.5.1",
     "hardhat": "^2.6.8",
-    "ipfs-http-client": "^56.0.1",
+    "ipfs-http-client": "^57.0.3",
     "next": "latest",
     "next-auth": "^4.3.3",
     "nft.storage": "^6.0.0",
