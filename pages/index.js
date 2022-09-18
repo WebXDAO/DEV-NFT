@@ -277,7 +277,7 @@ const home = ({ session }) => {
 
       <Features />
 
-      <Footer footerText="&copy; 2021 Web3Community. All rights reserved." />
+      <Footer footerText="&copy; 2021 WebXDAO. All rights reserved." />
     </div>
   )
 }

@@ -50,7 +50,7 @@ function Faq() {
                             <h2 className="text-3xl font-extrabold text-gray-900">Frequently asked questions</h2>
                             <p className="mt-4 text-lg text-gray-500">
                                 Can’t find the answer you’re looking for? Open an issue to our{' '}
-                                <a href="https://github.com/web3community/DEV-NFT" className="font-medium text-purple-600 hover:text-purple-500">
+                                <a href="https://github.com/WebXDAO/DEV-NFT" className="font-medium text-purple-600 hover:text-purple-500">
                                     GitHub
                                 </a>{' '}
                                 repository.
