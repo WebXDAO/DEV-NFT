@@ -6,7 +6,7 @@ The following is a set of guidelines for contributing to this project. These are
 
 ## 📜 Code of Conduct
 
-This project and everyone participating in it is governed by a [Code of Conduct](https://github.com/web3community/DEV-NFT/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to one of our moderators via your preferred platform or in our [Discord server](https://discord.gg/TSRwqx4K2v).
+This project and everyone participating in it is governed by a [Code of Conduct](https://github.com/WebXDAO/DEV-NFT/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to one of our moderators via your preferred platform or in our [Discord server](https://discord.gg/TSRwqx4K2v).
 
 ## 🤔 How can I contribute?
 
@@ -45,7 +45,7 @@ The process described here has several goals:
 - Engage the community in working toward the best possible outcome!
 - Enable a sustainable system for maintainers to review contributions.
 
-Please follow all instructions in [the template](https://github.com/web3community/DEV-NFT/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
+Please follow all instructions in [the template](https://github.com/WebXDAO/DEV-NFT/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
 
 ## Style Guide for Git Commit Messages 📝
 
@@ -135,12 +135,12 @@ git push origin your-branch-name
 ## 📈 Getting started
 
 - 😕 Not sure where to start? Join our community on [Discord](https://discord.gg/TSRwqx4K2v)
-- ✨ You can also take part in our [Community Discussions](https://github.com/web3community/DEV-NFT/discussions)
+- ✨ You can also take part in our [Community Discussions](https://github.com/WebXDAO/DEV-NFT/discussions)
 
-[repo]: https://github.com/web3community/DEV-NFT
-[good-first-issues]: https://github.com/web3community/DEV-NFT/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22
-[help-wanted]: https://github.com/web3community/DEV-NFT/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
-[issues]: https://github.com/web3community/DEV-NFT/issues
-[prs]: https://github.com/web3community/DEV-NFT/pulls
+[repo]: https://github.com/WebXDAO/DEV-NFT
+[good-first-issues]: https://github.com/WebXDAO/DEV-NFT/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22
+[help-wanted]: https://github.com/WebXDAO/DEV-NFT/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
+[issues]: https://github.com/WebXDAO/DEV-NFT/issues
+[prs]: https://github.com/WebXDAO/DEV-NFT/pulls
 
 [conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0/

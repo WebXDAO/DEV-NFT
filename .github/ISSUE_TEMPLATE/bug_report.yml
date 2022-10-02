@@ -46,7 +46,7 @@ body:
     id: contributing
     attributes:
       label: Contributing
-      description: You accept that you've read the [contributing guidelines](https://github.com/web3community/DEV-NFT/blob/main/CONTRIBUTING.md)
+      description: You accept that you've read the [contributing guidelines](https://github.com/WebXDAO/DEV-NFT/blob/main/CONTRIBUTING.md)
       options:
         - label: I have read the project's contribution guidelines.
           required: true
@@ -55,7 +55,7 @@ body:
     id: code-of-conduct
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/web3community/DEV-NFT/blob/main/CODE_OF_CONDUCT.md)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/WebXDAO/DEV-NFT/blob/main/CODE_OF_CONDUCT.md)
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
