@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   close-on-adding-invalid-label:
-    if: github.event.label.name == 'invalid' && github.repository_owner == 'web3community'
+    if: github.event.label.name == 'invalid' && github.repository_owner == 'WebXDAO'
     runs-on: ubuntu-latest
 
     steps:

@@ -21,7 +21,7 @@ function Footer({ footerText }) {
   const navigation = [
     {
       name: 'Instagram',
-      href: 'https://www.instagram.com/web3community/',
+      href: 'https://www.instagram.com/WebXDAO/',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -34,7 +34,7 @@ function Footer({ footerText }) {
     },
     {
       name: 'GitHub',
-      href: 'https://github.com/web3community/',
+      href: 'https://github.com/WebXDAO/',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path

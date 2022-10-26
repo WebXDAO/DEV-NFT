@@ -28,4 +28,4 @@ CLOSES #ISSUENO <!-- Please create a issue before a pull request for better coll
 
 <!-- All required info has \* in the title -->
 
-[contributing]: https://github.com/web3community/DEV-NFT/blob/main/CONTRIBUTING.md
+[contributing]: https://github.com/WebXDAO/DEV-NFT/blob/main/CONTRIBUTING.md

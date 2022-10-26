@@ -30,7 +30,7 @@ import {
   XIcon,
   LogoutIcon,
   LoginIcon,
-  
+
 } from '@heroicons/react/outline';
 // If you need another icon, just add his name in the list below
 // from https://unpkg.com/browse/@heroicons/react@1.0.5/outline/
@@ -58,7 +58,7 @@ const home = ({ session }) => {
   // and put it into our state for later use.
   useEffect(() => {
 
-    
+
     const checkConnection = async () => {
 
       // Check if browser is running Metamask
@@ -77,7 +77,7 @@ const home = ({ session }) => {
       if(web3){
       web3.eth.getAccounts()
         .then(async (addr) => {
-          
+
           // Set User account into state
           setAddress(addr);
 
@@ -255,7 +255,7 @@ const home = ({ session }) => {
                           >
                               <LogoutIcon onClick={() => signOut()} className="h-6 w-6" aria-hidden="true" />
                           </button>
-                      </>)}              
+                      </>)}
                     </div>
                   </nav>
                 </div>
@@ -277,7 +277,7 @@ const home = ({ session }) => {
 
       <Features />
 
-      <Footer footerText="&copy; 2021 Web3Community. All rights reserved." />
+      <Footer footerText="&copy; 2021 WebXDAO. All rights reserved." />
     </div>
   )
 }
