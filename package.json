@@ -13,7 +13,7 @@
     "@openzeppelin/contracts": "^4.3.3",
     "@tailwindcss/forms": "^0.5.0",
     "axios": "^0.27.2",
-    "ethereum-waffle": "^3.4.0",
+    "ethereum-waffle": "^4.0.10",
     "ethers": "^5.5.1",
     "hardhat": "^2.6.8",
     "ipfs-http-client": "^57.0.3",
