@@ -135,5 +135,8 @@ package-lock.json
 #secret
 .secret
 
+#config file
+config.js
+
 #Hardhat files
 
